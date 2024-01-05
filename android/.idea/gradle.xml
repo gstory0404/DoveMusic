@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/7.6/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/audio_service-0.18.12/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/audio_session-0.1.18/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio-0.9.36/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/package_info_plus-5.0.1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider_android-2.2.1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite-2.3.0/android" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
