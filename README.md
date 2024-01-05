@@ -58,4 +58,9 @@ services:
 ```
 BASE_URL=http://127.0.0.1:9191
 ```
-> 默认账号 admin  admin
+> 部署好访问 http://127.0.0.1:9191
+> 默认管理员账号 admin  admin
+
+
+
+
