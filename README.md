@@ -2,6 +2,8 @@
 
 云雀音乐是一个基于Flutter、Go开发个人音乐服务，支持私有化部署、全平台客户端支持
 
+![](https://github.com/gstory0404/LarkMusic/blob/master/doc/larkmusic.png)
+
 ## 功能
 - 多用户
 - 读取本地.mp3、.flac文件中的tag属性存入表，不对源文件做任何操作
