@@ -14,6 +14,21 @@
 - 歌词
 - 支持Android、iOS、MacOS、Windows、Linux等操作系统
 
+## 说明
+- 服务端会读取mp3、flac文件中的以下数据，在同步数据前，请确保以下数据没问题,防止数据错乱
+  
+|  参数   | 说明  |
+|  :----:  | :----:  |
+| Title  | 歌曲名称 |
+| Format  | Tag格式 |
+| FileType  | 文件类型 |
+| Artist  | 歌手 |
+| Album  | 专辑 |
+| Year  | 发行年份 |
+| Genre  | 流派 |
+| Picture  | 封面 |
+| Lyrics  | 歌词 |
+
 ## 安装
 - docker
 ```
