@@ -1,11 +1,12 @@
 /// @Author: gstory
 /// @CreateDate: 2023/5/25 14:37
 /// @Email gstory0404@gmail.com
-/// @Description: dart类作用描述
+/// @Description: 静态资源文件
 
 class AssetsImages{
   static const String bg = "assets/images/bg.jpg";
   static const String logo = "assets/images/logo.png";
+  static const String logo2 = "assets/images/logo2.ico";
   static const String logoPlaceholder = "assets/images/logo_placeholder.png";
   static const String iconUser = "assets/images/icon_user.png";
   static const String icTrayPre = "assets/images/ic_tray_pre.png";

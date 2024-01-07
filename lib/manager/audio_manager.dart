@@ -30,7 +30,7 @@ class AudioManager {
   }
 
   //播放器
-  late AudioPlayer _player;
+  final _player = AudioPlayer();
 
   //播放列表
   final _playlist = ConcatenatingAudioSource(
@@ -73,7 +73,6 @@ class AudioManager {
 
   ///初始化播放器
   void _initAudio() async {
-    _player = AudioPlayer();
     //初始化播放器Session
     final session = await AudioSession.instance;
     await session.configure(const AudioSessionConfiguration.music());
@@ -176,7 +175,6 @@ class AudioManager {
         return;
       }
     }
-    await _player.stop();
     _musicList.add(musicEntity);
     await _playlist.add(_musicToAudioSource(musicEntity));
     await _player.seek(Duration.zero, index: _playlist.length - 1);
@@ -189,13 +187,12 @@ class AudioManager {
   ///音乐转播放格式
   AudioSource _musicToAudioSource(MusicEntity entity) {
     return AudioSource.uri(
-      Uri.parse(entity.path ?? ""),
+      Uri.parse(Uri.encodeFull(entity.path ?? "")),
       tag: MediaItem(
         id: '${entity.id}',
         album: entity.albumName,
         title: entity.name ?? "",
         // artUri: Uri.dataFromString(entity.picture ?? ""),
-        artUri: null,
       ),
     );
   }

@@ -29,20 +29,24 @@ class TrayManager {
   final Menu _menu = Menu();
   final AppWindow _appWindow = AppWindow();
 
-  void _init(){
+  void _init() {
     _initSystemTray();
   }
 
   //系统托盘
   Future<void> _initSystemTray() async {
-    String _iconPath =
-    Platform.isWindows ? AssetsImages.logo : AssetsImages.logo;
+    String iconPath =
+        Platform.isWindows ? AssetsImages.logo2 : AssetsImages.logo;
     await _systemTray.initSystemTray(
-        title: "", iconPath: _iconPath, toolTip: S.current.appName);
+        title: S.current.appName,
+        iconPath: iconPath,
+        toolTip: S.current.appName);
     await _menu.buildFrom([
-      MenuItemLabel(label: S.current.appName,onClicked: (menuItem){
-        _appWindow.show();
-      }),
+      MenuItemLabel(
+          label: S.current.appName,
+          onClicked: (menuItem) {
+            _appWindow.show();
+          }),
       MenuSeparator(),
       MenuItemLabel(
           label: S.current.lastMusic,
@@ -78,9 +82,7 @@ class TrayManager {
       } else if (eventName == kSystemTrayEventRightClick) {
         //右键显示菜单
         _systemTray.popUpContextMenu();
-      } else if (eventName == kSystemTrayEventDoubleClick) {
-
-      }
+      } else if (eventName == kSystemTrayEventDoubleClick) {}
     });
   }
 }

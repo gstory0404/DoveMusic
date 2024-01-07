@@ -32,8 +32,7 @@ void initWindow() async {
   if (kIsWeb) {
   } else if (Platform.isFuchsia ||
       Platform.isLinux ||
-      Platform.isMacOS ||
-      Platform.isWindows) {
+      Platform.isMacOS) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow().then((_) async {
       // 隐藏窗口标题栏
