@@ -53,7 +53,7 @@ class _IndexDesktopPlayListState extends ConsumerState<IndexDesktopPlayList> {
             (BuildContext context, int index) => IndexDesktopPlayListItem(
               entity: AudioManager.instance.getPlayList()[index],
               delete: () {
-                ref.refresh(playProvider);
+                setState(() {});
               },
             ),
             childCount: AudioManager.instance.getPlayList().length,

@@ -38,9 +38,10 @@ class TrayManager {
     String iconPath =
         Platform.isWindows ? AssetsImages.logo2 : AssetsImages.logo;
     await _systemTray.initSystemTray(
-        title: S.current.appName,
-        iconPath: iconPath,
-        toolTip: S.current.appName);
+      // title: S.current.appName,
+      iconPath: iconPath,
+      // toolTip: S.current.appName,
+    );
     await _menu.buildFrom([
       MenuItemLabel(
           label: S.current.appName,

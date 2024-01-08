@@ -25,7 +25,6 @@ class AudioManager {
   }
 
   AudioManager._internal() {
-    print("AudioManager初始化");
     _init();
   }
 
@@ -242,13 +241,11 @@ class AudioManager {
     if (position == -1) {
       return;
     }
+    if(_playIndex == position){
+      _player.seekToNext();
+    }
     _musicList.removeAt(position);
     _playlist.removeAt(position);
-  }
-
-  ///播放指定音乐
-  void playPosition(int position) {
-    // _player.sk
   }
 
   ///停止
