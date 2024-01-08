@@ -16,8 +16,6 @@ import 'package:oktoast/oktoast.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'net/lm_http.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initWindow();
@@ -30,9 +28,7 @@ void main() {
 
 void initWindow() async {
   if (kIsWeb) {
-  } else if (Platform.isFuchsia ||
-      Platform.isLinux ||
-      Platform.isMacOS) {
+  } else if (Platform.isFuchsia || Platform.isLinux || Platform.isMacOS) {
     await windowManager.ensureInitialized();
     windowManager.waitUntilReadyToShow().then((_) async {
       // 隐藏窗口标题栏
@@ -68,7 +64,6 @@ void initAudio() async {
   }
   AudioManager.instance;
 }
-
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

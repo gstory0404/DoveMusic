@@ -36,10 +36,10 @@ class AudioManager {
       useLazyPreparation: true,
       shuffleOrder: DefaultShuffleOrder(),
       children: []);
-  late final List<MusicEntity> _musicList = [];
+  final List<MusicEntity> _musicList = [];
 
   //当前播放下标
-  late int _playIndex = 0;
+  int _playIndex = 0;
 
   //播放位置监听
   Stream<PlaybackEvent> get playbackEventStream => _player.playbackEventStream;
@@ -113,11 +113,7 @@ class AudioManager {
     playingStream.listen((event) {
       // LogUtil.d('playingStream event: $event');
     });
-    try {
-      await _player.setAudioSource(_playlist);
-    } catch (e, stackTrace) {
-      LogUtil.d("Error loading playlist: $e  $stackTrace");
-    }
+
     setVolume(SPManager.instance.getVolume());
     setLoopMode(LoopMode.all);
     setShuffleMode(false);
@@ -130,51 +126,49 @@ class AudioManager {
 
   ///设置播放列表
   Future<void> setList(List<MusicEntity> list, int index) async {
-    if (_player.audioSource == null) {
+    if (list.isEmpty) {
+      return;
+    }
+    await _addPlayList(musicList: list);
+    if (_player.audioSource?.sequence.isEmpty ?? true) {
       try {
-        await _player.setAudioSource(_playlist);
+        await _player.setAudioSource(_playlist, preload: true);
       } catch (e, stackTrace) {
         LogUtil.d("Error loading playlist: $e  $stackTrace");
       }
     }
-    if (list.isEmpty) {
-      return;
-    }
-    //如果正在播放在停止
-    if (_player.playing) {
-      await _player.pause();
-    }
-    _addPlayList(musicList: list);
-    Future.delayed(const Duration(milliseconds: 500))
-        .then((value) => _player.play());
+    await _player.seek(Duration.zero, index: 0);
+    await _player.play();
   }
 
   ///添加歌曲
   Future<void> playMusic(MusicEntity musicEntity) async {
     LogUtil.d("播放列表 ${_playlist.length}");
-    //如果正在播放在停止
-    if (_player.playing) {
-      await _player.pause();
-    }
     //如果歌曲已在列表中存在 则直接播放该歌曲
     for (int i = 0; i < _musicList.length; i++) {
       if (_musicList[i].id == musicEntity.id) {
         await _player.seek(Duration.zero, index: i);
-        await _player.play();
         return;
       }
     }
-    _addPlayList(music: musicEntity);
-    Future.delayed(const Duration(milliseconds: 500))
-        .then((value) => _player.play());
+    await _addPlayList(music: musicEntity);
+    if (_player.audioSource?.sequence.isEmpty ?? true) {
+      try {
+        await _player.setAudioSource(_playlist, preload: true);
+      } catch (e, stackTrace) {
+        LogUtil.d("Error loading playlist: $e  $stackTrace");
+      }
+    }
+    await _player.seek(Duration.zero, index: _playlist.length - 1);
+    await _player.play();
   }
 
   ///添加音乐
-  void _addPlayList({MusicEntity? music, List<MusicEntity>? musicList}) {
+  Future<void> _addPlayList(
+      {MusicEntity? music, List<MusicEntity>? musicList}) async {
     if (music != null) {
       _musicList.add(music);
-      _playlist.add(_musicToAudioSource(music)).then(
-          (value) => _player.seek(Duration.zero, index: _playlist.length - 1));
+      await _playlist.add(_musicToAudioSource(music));
     }
     if (musicList?.isNotEmpty ?? false) {
       _musicList.clear();
@@ -184,10 +178,9 @@ class AudioManager {
       for (var element in musicList) {
         sourceList.add(_musicToAudioSource(element));
       }
-      _playlist
-          .addAll(sourceList)
-          .then((value) => _player.seek(Duration.zero, index: 0));
+      await _playlist.addAll(sourceList);
     }
+    return;
   }
 
   ///音乐转播放格式
@@ -241,7 +234,7 @@ class AudioManager {
     if (position == -1) {
       return;
     }
-    if(_playIndex == position){
+    if (_playIndex == position) {
       _player.seekToNext();
     }
     _musicList.removeAt(position);

@@ -11,9 +11,11 @@ import 'package:larkmusic/routes/app_pages.dart';
 /// @Description: dart类作用描述
 
 class HomePage extends BasePage {
-
-  static void go(BuildContext context){
+  static void go(BuildContext context) {
     context.goNamed(RouterPage.home);
+    if (context.canPop()) {
+      context.pop();
+    }
   }
 
   @override

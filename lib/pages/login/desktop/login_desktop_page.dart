@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:larkmusic/generated/l10n.dart';
 import 'package:larkmusic/pages/home/home_page.dart';
 import 'package:larkmusic/pages/login/login_provider.dart';
@@ -29,19 +28,20 @@ class LoginDesktopPageState extends ConsumerState<LoginDesktopPage> {
   @override
   void initState() {
     super.initState();
-    if(SPManager.instance.getUserInfo().token?.isNotEmpty ?? false){
-      HomePage.go(context);
-    }
     WidgetsBinding.instance.addPostFrameCallback((mag) {
-      ref.watch(loginProvider.notifier).readCacheData();
-      ref.watch(loginProvider.notifier).addListener((state) {
-        if (state.loginEntity != null && state.loginEntity?.userId != 0) {
-          ToastUtils.show(S.current.loginSuccess);
-          HomePage.go(context);
-        } else if (state.errMsg != null) {
-          ToastUtils.show("${state.errMsg}");
-        }
-      });
+      if (SPManager.instance.getUserInfo().token?.isNotEmpty ?? false) {
+        HomePage.go(context);
+      } else {
+        ref.watch(loginProvider.notifier).readCacheData();
+        ref.watch(loginProvider.notifier).addListener((state) {
+          if (state.loginEntity != null && state.loginEntity?.userId != 0) {
+            ToastUtils.show(S.current.loginSuccess);
+            HomePage.go(context);
+          } else if (state.errMsg != null) {
+            ToastUtils.show("${state.errMsg}");
+          }
+        });
+      }
     });
   }
 

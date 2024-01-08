@@ -17,7 +17,7 @@ import '../../../generated/l10n.dart';
 /// @Email gstory0404@gmail.com
 /// @Description: dart类作用描述
 class IndexMobilePage extends ConsumerStatefulWidget {
-  const IndexMobilePage({super.key});
+  IndexMobilePage({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>

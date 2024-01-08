@@ -10,19 +10,19 @@ import 'desktop/index_desktop_page.dart';
 /// @Description: dart类作用描述
 
 class IndexPage extends BasePage {
-
   Widget? child;
 
   IndexPage({super.key, this.child});
 
-
   @override
   Widget desktop() {
-    return IndexDesktopPage(child: child,);
+    return IndexDesktopPage(
+      child: child,
+    );
   }
 
   @override
   Widget phone() {
-    return const IndexMobilePage();
+    return IndexMobilePage();
   }
 }

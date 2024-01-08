@@ -28,36 +28,6 @@ class BaseEntity<T> {
 
   //泛型解析
   T? _fromJsonAsT(dynamic data) {
-    // if(T is LoginEntity){
-    //   return LoginEntity.fromJson(data) as T?;
-    // }else if(T is List<MusicEntity>){
-    //   return List.from(data as List)
-    //       .map((x) => MusicEntity.fromJson(x))
-    //       .toList()
-    //       .cast<MusicEntity>() as T?;
-    // }else if(T is List<SongListEntity>){
-    //   return List.from(data as List)
-    //       .map((x) => SongListEntity.fromJson(x))
-    //       .toList()
-    //       .cast<SongListEntity>() as T?;
-    // }else if(T is SongListEntity){
-    //   return SongListEntity.fromJson(data) as T?;
-    // }else if(T is List<AlbumEntity>){
-    //   return SongListEntity.fromJson(data) as T?;
-    // }else if(T is AlbumEntity){
-    //   return AlbumEntity.fromJson(data) as T?;
-    // }else if(T is List<SingerEntity>){
-    //   return List.from(data as List)
-    //       .map((x) => SingerEntity.fromJson(x))
-    //       .toList()
-    //       .cast<SingerEntity>() as T?;
-    // }else if(T is SingerEntity){
-    //   return SingerEntity.fromJson(data) as T?;
-    // }else if(T is SearchEntity){
-    //   return SearchEntity.fromJson(data) as T?;
-    // }else{
-    //   return data as T?;
-    // }
     switch (T) {
       //登录
       case LoginEntity:
