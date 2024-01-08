@@ -146,7 +146,8 @@ class AudioManager {
       await _player.pause();
     }
     _addPlayList(musicList: list);
-    _player.play();
+    Future.delayed(const Duration(milliseconds: 500))
+        .then((value) => _player.play());
   }
 
   ///添加歌曲
@@ -165,7 +166,8 @@ class AudioManager {
       }
     }
     _addPlayList(music: musicEntity);
-    _player.play();
+    Future.delayed(const Duration(milliseconds: 500))
+        .then((value) => _player.play());
   }
 
   ///添加音乐
@@ -183,8 +185,9 @@ class AudioManager {
       for (var element in musicList) {
         sourceList.add(_musicToAudioSource(element));
       }
-      _playlist.addAll(sourceList).then(
-          (value) => _player.seek(Duration.zero, index: _playlist.length - 1));
+      _playlist
+          .addAll(sourceList)
+          .then((value) => _player.seek(Duration.zero, index: 0));
     }
   }
 
