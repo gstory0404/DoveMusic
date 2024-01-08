@@ -114,6 +114,11 @@ class AudioManager {
     playingStream.listen((event) {
       // LogUtil.d('playingStream event: $event');
     });
+    try {
+      await _player.setAudioSource(_playlist);
+    } catch (e, stackTrace) {
+      LogUtil.d("Error loading playlist: $e  $stackTrace");
+    }
     setVolume(SPManager.instance.getVolume());
     setLoopMode(LoopMode.all);
     setShuffleMode(false);
@@ -141,21 +146,12 @@ class AudioManager {
       await _player.pause();
     }
     _addPlayList(musicList: list);
-    await _player.seek(Duration.zero, index: 0);
-    await _player.play();
+    _player.play();
   }
 
   ///添加歌曲
   Future<void> playMusic(MusicEntity musicEntity) async {
     LogUtil.d("播放列表 ${_playlist.length}");
-    if (_player.audioSource == null) {
-      LogUtil.d("暂无播放列表");
-      try {
-        await _player.setAudioSource(_playlist);
-      } catch (e, stackTrace) {
-        LogUtil.d("Error loading playlist: $e  $stackTrace");
-      }
-    }
     //如果正在播放在停止
     if (_player.playing) {
       await _player.pause();
@@ -169,20 +165,17 @@ class AudioManager {
       }
     }
     _addPlayList(music: musicEntity);
-    await _player.seek(Duration.zero, index: _playlist.length - 1);
-    Future.delayed(const Duration(milliseconds: 100), () async {
-      await _player.play();
-      LogUtil.d("开始播放");
-    });
+    _player.play();
   }
 
   ///添加音乐
-  void _addPlayList({MusicEntity? music,List<MusicEntity>? musicList}){
-    if(music != null){
+  void _addPlayList({MusicEntity? music, List<MusicEntity>? musicList}) {
+    if (music != null) {
       _musicList.add(music);
-      _playlist.add(_musicToAudioSource(music));
+      _playlist.add(_musicToAudioSource(music)).then(
+          (value) => _player.seek(Duration.zero, index: _playlist.length - 1));
     }
-    if(musicList?.isNotEmpty ?? false){
+    if (musicList?.isNotEmpty ?? false) {
       _musicList.clear();
       _musicList.addAll(musicList!);
       _playlist.clear();
@@ -190,7 +183,8 @@ class AudioManager {
       for (var element in musicList) {
         sourceList.add(_musicToAudioSource(element));
       }
-      _playlist.addAll(sourceList);
+      _playlist.addAll(sourceList).then(
+          (value) => _player.seek(Duration.zero, index: _playlist.length - 1));
     }
   }
 
