@@ -140,14 +140,7 @@ class AudioManager {
     if (_player.playing) {
       await _player.pause();
     }
-    _musicList.clear();
-    _musicList.addAll(list);
-    _playlist.clear();
-    List<AudioSource> sourceList = [];
-    for (var element in list) {
-      sourceList.add(_musicToAudioSource(element));
-    }
-    await _playlist.addAll(sourceList);
+    _addPlayList(musicList: list);
     await _player.seek(Duration.zero, index: 0);
     await _player.play();
   }
@@ -175,13 +168,30 @@ class AudioManager {
         return;
       }
     }
-    _musicList.add(musicEntity);
-    await _playlist.add(_musicToAudioSource(musicEntity));
+    _addPlayList(music: musicEntity);
     await _player.seek(Duration.zero, index: _playlist.length - 1);
     Future.delayed(const Duration(milliseconds: 100), () async {
       await _player.play();
       LogUtil.d("开始播放");
     });
+  }
+
+  ///添加音乐
+  void _addPlayList({MusicEntity? music,List<MusicEntity>? musicList}){
+    if(music != null){
+      _musicList.add(music);
+      _playlist.add(_musicToAudioSource(music));
+    }
+    if(musicList?.isNotEmpty ?? false){
+      _musicList.clear();
+      _musicList.addAll(musicList!);
+      _playlist.clear();
+      List<AudioSource> sourceList = [];
+      for (var element in musicList) {
+        sourceList.add(_musicToAudioSource(element));
+      }
+      _playlist.addAll(sourceList);
+    }
   }
 
   ///音乐转播放格式
