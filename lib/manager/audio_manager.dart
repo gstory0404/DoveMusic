@@ -186,7 +186,7 @@ class AudioManager {
   ///音乐转播放格式
   AudioSource _musicToAudioSource(MusicEntity entity) {
     return AudioSource.uri(
-      Uri.parse(Uri.encodeFull(entity.path ?? "")),
+      Uri.parse("${SPManager.instance.getHost()}/music/${entity.id}"),
       tag: MediaItem(
         id: '${entity.id}',
         album: entity.albumName,
