@@ -6,6 +6,7 @@ import 'package:larkmusic/entity/music_entity.dart';
 import 'package:larkmusic/pages/play/play_provider.dart';
 import 'package:larkmusic/utils/sp/sp_manager.dart';
 
+import '../config/net_api.dart';
 import '../utils/log/log_util.dart';
 
 /// @Author: gstory
@@ -185,8 +186,9 @@ class AudioManager {
 
   ///音乐转播放格式
   AudioSource _musicToAudioSource(MusicEntity entity) {
+    print(NetApi.playPath(id: entity.id!));
     return AudioSource.uri(
-      Uri.parse("${SPManager.instance.getHost()}/music/${entity.id}"),
+      Uri.parse(NetApi.playPath(id: entity.id!)),
       tag: MediaItem(
         id: '${entity.id}',
         album: '${entity.artistName} - ${entity.albumName}',

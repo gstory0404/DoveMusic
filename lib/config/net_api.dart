@@ -1,3 +1,5 @@
+import 'package:larkmusic/utils/sp/sp_manager.dart';
+
 /// @Author: gstory
 /// @CreateDate: 2023/5/25 15:17
 /// @Email gstory0404@gmail.com
@@ -36,4 +38,9 @@ class NetApi{
   static const String singerDetail = "/api/artist/detail";
   //同步歌曲
   static const String syncMusic = "/api/admin/syncMusic";
+
+  //播放地址
+  static String playPath({required int id}){
+    return "${SPManager.instance.getHost()}/play/$id";
+  }
 }
