@@ -189,7 +189,7 @@ class AudioManager {
       Uri.parse("${SPManager.instance.getHost()}/music/${entity.id}"),
       tag: MediaItem(
         id: '${entity.id}',
-        album: entity.albumName,
+        album: '${entity.artistName} - ${entity.albumName}',
         title: entity.name ?? "",
         // artUri: Uri.dataFromString(entity.picture ?? ""),
       ),
