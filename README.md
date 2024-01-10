@@ -32,14 +32,14 @@
 ## 安装
 - docker
 ```
-docker run --name larkmusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/larkmusic:0.0.1
+docker run --name larkmusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/larkmusic:0.0.2
 ```
 - docker compose
 ```
 version: "3.4"
 services:
   larkmusic:
-    image: gstory404/larkmusic:0.0.1
+    image: gstory404/larkmusic:0.0.2
     container_name: larkmusic
     ports:
       - 9191:9191
@@ -57,9 +57,11 @@ services:
 - .env
 ```
 BASE_URL=http://127.0.0.1:9191
+ADMIN_USER=admin
+ADMIN_PWD=larkmusic
 ```
 > 部署好访问 http://127.0.0.1:9191
-> 默认管理员账号 admin  admin
+> 默认管理员账号 admin  larkmusic
 
 
 

@@ -73,5 +73,8 @@
   "library": "乐库",
   "recommend": "今日推荐",
   "refresh": "刷新",
-  "music": "歌曲"
+  "music": "歌曲",
+  "delete": "删除",
+  "addSuccess": "添加成功",
+  "deleteSuccess": "删除成功"
 }

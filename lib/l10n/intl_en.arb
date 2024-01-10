@@ -72,5 +72,8 @@
   "library": "Library",
   "recommend": "Recommend",
   "refresh": "Refresh",
-  "music": "Music"
+  "music": "Music",
+  "delete": "Delete",
+  "addSuccess": "Add Success",
+  "deleteSuccess": "Delete Success"
 }

@@ -22,8 +22,9 @@ import 'songlist_add_song_dialog.dart';
 class MusicItem extends ConsumerStatefulWidget {
   MusicEntity entity;
   VoidCallback? play;
+  List<PopupMenuEntry>? menus = [];
 
-  MusicItem({super.key, required this.entity, this.play});
+  MusicItem({super.key, required this.entity, this.play, this.menus});
 
   @override
   ConsumerState<MusicItem> createState() => _MusicItemState();
@@ -80,6 +81,7 @@ class _MusicItemState extends ConsumerState<MusicItem> {
           style: const TextStyle(fontSize: 14, color: Colors.black),
         ),
       ),
+      ...?widget.menus
     ];
   }
 

@@ -24,6 +24,8 @@ class NetApi{
   static const String create = "/api/songList/create";
   //歌单添加歌曲
   static const String songListAddMusic = "/api/songList/addMusic";
+  //歌单删除歌曲
+  static const String songListDeleteMusic = "/api/songList/deleteMusic";
   //歌单详情
   static const String songListDetail = "/api/songList/detail";
   //删除歌单

@@ -38,6 +38,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   logger: ^2.0.2+1
   flutter_list_view: ^1.1.22
+  url_launcher: ^6.2.3
 
 dev_dependencies:
   flutter_test:

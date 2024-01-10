@@ -105,7 +105,7 @@ class AudioManager {
 
     //播放位置监听监听
     playbackEventStream.listen((event) {
-      // LogUtil.d('playbackEventStream event: $event');
+      LogUtil.d('playbackEventStream event: $event');
       _playIndex = event.currentIndex ?? 0;
     }, onError: (Object e, StackTrace stackTrace) {
       LogUtil.d('A stream error occurred: $e');
@@ -186,9 +186,8 @@ class AudioManager {
 
   ///音乐转播放格式
   AudioSource _musicToAudioSource(MusicEntity entity) {
-    print(NetApi.playPath(id: entity.id!));
     return AudioSource.uri(
-      Uri.parse(NetApi.playPath(id: entity.id!)),
+      Uri.parse(entity.path ?? ""),
       tag: MediaItem(
         id: '${entity.id}',
         album: '${entity.artistName} - ${entity.albumName}',

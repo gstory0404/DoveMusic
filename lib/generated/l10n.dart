@@ -789,6 +789,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Success`
+  String get addSuccess {
+    return Intl.message(
+      'Add Success',
+      name: 'addSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Success`
+  String get deleteSuccess {
+    return Intl.message(
+      'Delete Success',
+      name: 'deleteSuccess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:larkmusic/config/net_api.dart';
 import 'package:larkmusic/entity/song_list_entity.dart';
 
+import '../../generated/l10n.dart';
 import '../../net/lm_http.dart';
 import '../../utils/toast/toast_util.dart';
 import '../../widget/status_widget.dart';
@@ -70,6 +71,17 @@ class SongListDetailViewModel extends StateNotifier<SongListDetailState> {
     LMHttp.instance.post<int>(NetApi.songListDelete, data: {"id": _songListId},
         success: (data) {
       state = state.copyWith(isDelete: true);
+    }, fail: (code, message) {
+      ToastUtils.show("$code $message");
+    });
+  }
+
+  //删除歌曲
+  void deleteSong(List<int> ids) {
+    LMHttp.instance.post<String>(NetApi.songListDeleteMusic,
+        data: {"id": _songListId, "music_ids": ids}, success: (data) {
+      ToastUtils.show(S.current.deleteSuccess);
+      getSongListDetail();
     }, fail: (code, message) {
       ToastUtils.show("$code $message");
     });

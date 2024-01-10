@@ -34,63 +34,87 @@ class SongListDetailDesktopPage extends ConsumerWidget {
     });
     final model = ref.watch(songListDetailProvider(songListId));
     return Scaffold(
-      backgroundColor: Colors.white60,
-      body:StatusWidget(status: model.status, child:  Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SongListDetailTop(entity: model.songListDetail),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              margin: EdgeInsets.only(top: 14),
-              height: 40,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Text(S.current.musicName),
+        backgroundColor: Colors.white60,
+        body: StatusWidget(
+          status: model.status,
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SongListDetailTop(entity: model.songListDetail),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  margin: EdgeInsets.only(top: 14),
+                  height: 40,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Text(S.current.musicName),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(S.current.singer),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Text(S.current.album),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(S.current.singer),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(S.current.album),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 1,
-              color: Colors.grey[100],
-            ),
-            Expanded(
-              child: EasyRefresh(
-                triggerAxis: Axis.vertical,
-                onRefresh: () {
-                  ref
-                      .read(songListDetailProvider(songListId).notifier)
-                      .getSongListDetail();
-                },
-                child: ListView.builder(
-                  itemCount: model.songListDetail?.list?.length ?? 0,
-                  itemBuilder: (context, index) {
-                    return MusicItem(
-                      entity: model.songListDetail!.list![index],
-                      play: () {
-                        AudioManager.instance
-                            .setList(model.songListDetail?.list ?? [], index);
-                      },
-                    );
-                  },
                 ),
-              ),
+                Container(
+                  width: double.infinity,
+                  height: 1,
+                  color: Colors.grey[100],
+                ),
+                Expanded(
+                  child: EasyRefresh(
+                    triggerAxis: Axis.vertical,
+                    onRefresh: () {
+                      ref
+                          .read(songListDetailProvider(songListId).notifier)
+                          .getSongListDetail();
+                    },
+                    child: ListView.builder(
+                      itemCount: model.songListDetail?.list?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return MusicItem(
+                          entity: model.songListDetail!.list![index],
+                          play: () {
+                            AudioManager.instance.setList(
+                                model.songListDetail?.list ?? [], index);
+                          },
+                          menus: [
+                            const PopupMenuDivider(),
+                            PopupMenuItem(
+                              height: 10,
+                              onTap: () {
+                                ref
+                                    .watch(songListDetailProvider(songListId)
+                                        .notifier)
+                                    .deleteSong([
+                                  model.songListDetail!.list![index].id!
+                                ]);
+                              },
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  S.current.delete,
+                                  style: const TextStyle(
+                                      fontSize: 14, color: Colors.black),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),)
-    );
+          ),
+        ));
   }
 }

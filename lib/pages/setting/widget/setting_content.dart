@@ -7,6 +7,7 @@ import 'package:larkmusic/pages/setting/widget/setting_item.dart';
 import 'package:larkmusic/pages/setting/widget/setting_language_dialog.dart';
 import 'package:larkmusic/utils/sp/sp_manager.dart';
 import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../manager/locale_provider.dart';
@@ -109,7 +110,9 @@ class SettingContent extends StatelessWidget {
                     title: S.current.appVersion,
                     content: Text(
                         "v${ref.watch(settingProvider.select((value) => value.appVersion))}"),
-                    onTap: () {},
+                    onTap: () async {
+                      await launchUrl(Uri.parse("https://github.com/gstory0404/LarkMusic/releases"));
+                    },
                   );
                 }),
                 Container(
@@ -120,31 +123,36 @@ class SettingContent extends StatelessWidget {
                 //项目主页
                 SettingItem(
                   title: S.current.appHome,
-                  content: const Text("https://github.com/gstory0404"),
-                  onTap: () {},
+                  content: const Text("https://github.com/gstory0404/LarkMusic"),
+                  onTap: ()  async {
+                    await launchUrl(Uri.parse("https://github.com/gstory0404/LarkMusic"));
+                  },
                 ),
                 Container(
                   color: Colors.grey,
                   height: 0.5,
                   width: MediaQuery.of(context).size.width,
                 ),
-                SettingItem(
-                  title: S.current.protocol,
-                  content: IconWidget(icon: Icons.chevron_right, size: 16),
-                  onTap: () {
-                    showLicensePage(
-                      context: context,
-                      applicationIcon: Image.asset(
-                        AssetsImages.logo,
-                        height: 100,
-                        width: 100,
-                      ),
-                      applicationName: S.current.appName,
-                      applicationVersion: '1.0.0',
-                      applicationLegalese: S.current.appDesc,
-                    );
-                  },
-                ),
+                //开源协议
+                Consumer(builder: (context, ref, _) {
+                  return SettingItem(
+                    title: S.current.protocol,
+                    content: IconWidget(icon: Icons.chevron_right, size: 16),
+                    onTap: () {
+                      showLicensePage(
+                        context: context,
+                        applicationIcon: Image.asset(
+                          AssetsImages.logo,
+                          height: 100,
+                          width: 100,
+                        ),
+                        applicationName: S.current.appName,
+                        applicationVersion:  "v${ref.watch(settingProvider.select((value) => value.appVersion))}",
+                        applicationLegalese: S.current.appDesc,
+                      );
+                    },
+                  );
+                }),
               ],
             ),
           ),

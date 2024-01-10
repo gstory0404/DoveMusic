@@ -105,8 +105,8 @@ class SongListAddSongDialog extends ConsumerWidget {
       "id": songListId,
       "music_ids": [id]
     }, success: (data) {
-      ToastUtils.show("添加成功");
-      context.pop(data);
+      ToastUtils.show(S.current.addSuccess);
+      Navigator.of(context).pop();
     }, fail: (code, message) {
       ToastUtils.show("$code $message");
     });

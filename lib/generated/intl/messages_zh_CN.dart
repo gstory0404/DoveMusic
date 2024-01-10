@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("账号"),
         "accountNotEmpty": MessageLookupByLibrary.simpleMessage("账号不能为空"),
+        "addSuccess": MessageLookupByLibrary.simpleMessage("添加成功"),
         "addToSongList": MessageLookupByLibrary.simpleMessage("添加到歌单"),
         "album": MessageLookupByLibrary.simpleMessage("专辑"),
         "appDesc": MessageLookupByLibrary.simpleMessage("开源音乐播放器"),
@@ -37,7 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "collect": MessageLookupByLibrary.simpleMessage("我喜欢"),
         "console": MessageLookupByLibrary.simpleMessage("控制台"),
         "createSongList": MessageLookupByLibrary.simpleMessage("创建歌单"),
+        "delete": MessageLookupByLibrary.simpleMessage("删除"),
         "deleteSongListSuccess": MessageLookupByLibrary.simpleMessage("删除歌单成功"),
+        "deleteSuccess": MessageLookupByLibrary.simpleMessage("删除成功"),
         "desc": MessageLookupByLibrary.simpleMessage("简介"),
         "emptyTips": MessageLookupByLibrary.simpleMessage("暂无数据"),
         "english": MessageLookupByLibrary.simpleMessage("英语"),

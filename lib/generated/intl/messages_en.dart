@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "account": MessageLookupByLibrary.simpleMessage("account"),
         "accountNotEmpty":
             MessageLookupByLibrary.simpleMessage("account cannot be empty"),
+        "addSuccess": MessageLookupByLibrary.simpleMessage("Add Success"),
         "addToSongList":
             MessageLookupByLibrary.simpleMessage("Add to playlist"),
         "album": MessageLookupByLibrary.simpleMessage("Album"),
@@ -41,8 +42,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "console": MessageLookupByLibrary.simpleMessage("Console"),
         "createSongList":
             MessageLookupByLibrary.simpleMessage("Create SongList"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteSongListSuccess": MessageLookupByLibrary.simpleMessage(
             "Deletion of playlist successful"),
+        "deleteSuccess": MessageLookupByLibrary.simpleMessage("Delete Success"),
         "desc": MessageLookupByLibrary.simpleMessage("Desc"),
         "emptyTips": MessageLookupByLibrary.simpleMessage("No data"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
