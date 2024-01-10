@@ -63,6 +63,9 @@ ADMIN_PWD=larkmusic
 > 部署好访问 http://127.0.0.1:9191
 > 默认管理员账号 admin  larkmusic
 
+# 说明
+- 由于[插件原因](https://github.com/bdlukaa/just_audio_windows/issues/26)，Windows暂时无法播放名称带空格的歌曲
+
 # 声明
 本项目禁止任何形式的商业用途，包括但不仅限于售卖/打赏/获利，不得使用本代码进行任何形式的牟利/贩卖/传播。  
 本项目不提供任何音乐本体！对用户的行为及内容毫不知情，使用本软件产生的任何责任需由使用者本人承担。   
