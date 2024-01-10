@@ -32,14 +32,14 @@
 ## 安装
 - docker
 ```
-docker run --name larkmusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/larkmusic:0.0.2
+docker run --name larkmusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/larkmusic:latest
 ```
 - docker compose
 ```
 version: "3.4"
 services:
   larkmusic:
-    image: gstory404/larkmusic:0.0.2
+    image: gstory404/larkmusic:latest
     container_name: larkmusic
     ports:
       - 9191:9191
