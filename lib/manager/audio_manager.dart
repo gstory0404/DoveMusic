@@ -149,6 +149,7 @@ class AudioManager {
     for (int i = 0; i < _musicList.length; i++) {
       if (_musicList[i].id == musicEntity.id) {
         await _player.seek(Duration.zero, index: i);
+        await _player.play();
         return;
       }
     }
