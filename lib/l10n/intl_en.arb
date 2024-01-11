@@ -75,5 +75,7 @@
   "music": "Music",
   "delete": "Delete",
   "addSuccess": "Add Success",
-  "deleteSuccess": "Delete Success"
+  "deleteSuccess": "Delete Success",
+  "tips": "Tips",
+  "goSync": "There is no data yet. Do you want to synchronize it?"
 }

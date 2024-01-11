@@ -19,7 +19,6 @@ class SettingPhonePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(S.current.songList),
         ),
-        backgroundColor: Colors.white60,
         body: SettingContent(),
       ),
     );

@@ -52,6 +52,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
 
   //最新入库
   void getSearchList(String key) {
+    state = state.copyWith(status: StatusType.LOADING);
     LMHttp.instance.post<SearchEntity>(NetApi.search,
         data: {"key": key, "page": page, "size": AppConfig.maxSize},
         success: (data) {

@@ -23,8 +23,7 @@ class SongListCreateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(S.current.createSongList),
-      titleTextStyle: const TextStyle(fontSize: 20, color: Colors.white),
-      backgroundColor: Colors.grey,
+      titleTextStyle: const TextStyle(fontSize: 20),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       content: Wrap(
@@ -68,7 +67,7 @@ class SongListCreateWidget extends StatelessWidget {
           child: Text(S.current.cancel,
               style: const TextStyle(color: Colors.black)),
           onPressed: () {
-            context.pop();
+            Navigator.of(context).pop();
           },
         ),
         ElevatedButton(

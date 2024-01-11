@@ -21,7 +21,6 @@ class ConsolePage extends BasePage{
   @override
   Widget desktop() {
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: ConsoleContent(),
     );
   }
@@ -33,7 +32,6 @@ class ConsolePage extends BasePage{
         appBar: AppBar(
           title: Text(S.current.console),
         ),
-        backgroundColor: Colors.white60,
         body: ConsoleContent(),
       ),
     );

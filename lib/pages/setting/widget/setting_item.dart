@@ -24,6 +24,7 @@ class SettingItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
+        color: Colors.grey[100],
         alignment: Alignment.center,
         height: 50,
         child: Row(

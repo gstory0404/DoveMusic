@@ -27,8 +27,7 @@ class IndexDesktopItem extends StatelessWidget {
               title,
               maxLines: 1,
               style: TextStyle(
-                  fontSize: 13,
-                  color: Theme.of(context).colorScheme.onBackground),
+                  fontSize: 13),
             ),
           ),
         ),

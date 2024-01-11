@@ -40,7 +40,7 @@ class StatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (status) {
       case StatusType.LOADING:
-        return _loadingWidget();
+        return _loadingWidget(context);
       case StatusType.EMPTY:
         return _emptyWidget();
       case StatusType.ERROR:
@@ -52,10 +52,10 @@ class StatusWidget extends StatelessWidget {
     }
   }
 
-  _loadingWidget() {
+  _loadingWidget(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.fourRotatingDots(
-        color: const Color(0xFF1A1A3F),
+        color: Theme.of(context).primaryColor,
         size: 50,
       ),
     );

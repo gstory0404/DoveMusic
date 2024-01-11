@@ -27,19 +27,19 @@ class IndexDesktopPlay extends ConsumerWidget {
     // LogUtil.d("${state.curDuration}  ${state.bufferedDuration}  ${state.maxDuration}");
     return Column(
       children: [
+        const Divider(height: 0.5),
         Container(
           child: ProgressBar(
             progress: state.curDuration,
             buffered: state.bufferedDuration,
             total: state.maxDuration,
-            progressBarColor: Theme.of(context).colorScheme.background,
-            baseBarColor:
-                Theme.of(context).colorScheme.background.withOpacity(0.1),
+            progressBarColor: Theme.of(context).colorScheme.primary,
+            baseBarColor: Colors.white,
             bufferedBarColor:
-                Theme.of(context).colorScheme.background.withOpacity(0.24),
+                Theme.of(context).colorScheme.primary.withOpacity(0.24),
             timeLabelLocation: TimeLabelLocation.none,
             thumbColor: Theme.of(context).colorScheme.background,
-            barHeight: 4.0,
+            barHeight: 6.0,
             thumbRadius: 3.0,
             onSeek: (duration) {
               AudioManager.instance.seek(duration);

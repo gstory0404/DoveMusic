@@ -59,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm the new password"),
         "errorTips": MessageLookupByLibrary.simpleMessage("Request failed"),
         "exit": MessageLookupByLibrary.simpleMessage("Exit"),
+        "goSync": MessageLookupByLibrary.simpleMessage(
+            "There is no data yet. Do you want to synchronize it?"),
         "home": MessageLookupByLibrary.simpleMessage("Recommend"),
         "importSongs": MessageLookupByLibrary.simpleMessage("Import songs"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -116,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "surePsdErr": MessageLookupByLibrary.simpleMessage(
             "The new password is inconsistent with the confirmed password"),
         "syncMusic": MessageLookupByLibrary.simpleMessage("Sync Music"),
-        "theme": MessageLookupByLibrary.simpleMessage("Theme")
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "tips": MessageLookupByLibrary.simpleMessage("Tips")
       };
 }

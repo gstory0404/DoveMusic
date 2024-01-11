@@ -13,7 +13,6 @@ class SettingDesktopPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: SettingContent(),
     );
   }

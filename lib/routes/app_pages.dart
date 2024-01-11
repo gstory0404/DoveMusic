@@ -16,6 +16,7 @@ import 'package:larkmusic/pages/singer/singer_page.dart';
 import 'package:larkmusic/pages/singerlist/singer_list_page.dart';
 import 'package:larkmusic/pages/songlist/song_list_page.dart';
 import 'package:larkmusic/pages/songlist_detail/songlist_detail_page.dart';
+import 'package:larkmusic/pages/splash/splash_page.dart';
 import 'package:larkmusic/utils/sp/sp_manager.dart';
 
 import '../manager/tray_manager.dart';
@@ -31,6 +32,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
 class RouterPage {
+  static const String splash = "splash";
   static const String login = "login";
   static const String index = "index";
   static const String home = "home";
@@ -52,12 +54,20 @@ class RouterPage {
 //手机端路由
 final phoneRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
-  initialLocation: '/login',
+  initialLocation: '/splash',
   debugLogDiagnostics: true,
   observers: [
     GoRouterObserver(),
   ],
   routes: [
+    GoRoute(
+      name: RouterPage.splash,
+      path: '/splash',
+      parentNavigatorKey: rootNavigatorKey,
+      pageBuilder: (context, state) {
+        return _transitionBuild(context, state, SplashPage());
+      },
+    ),
     GoRoute(
       name: RouterPage.home,
       path: '/home',
@@ -82,12 +92,20 @@ final phoneRouter = GoRouter(
 //桌面端路由
 final desktopRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
-  initialLocation: '/login',
+  initialLocation: '/splash',
   debugLogDiagnostics: true,
   observers: [
     GoRouterObserver(),
   ],
   routes: [
+    GoRoute(
+      name: RouterPage.splash,
+      path: '/splash',
+      parentNavigatorKey: rootNavigatorKey,
+      pageBuilder: (context, state) {
+        return _transitionBuild(context, state, SplashPage());
+      },
+    ),
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       builder: (context, state, child) {

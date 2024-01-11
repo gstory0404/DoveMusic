@@ -25,7 +25,7 @@ class IndexMobilePage extends ConsumerStatefulWidget {
 }
 
 class _IndexMobilePageState extends ConsumerState<IndexMobilePage>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   int _currentIndex = 0;
 
   //PageController
@@ -37,6 +37,9 @@ class _IndexMobilePageState extends ConsumerState<IndexMobilePage>
     HomePage(),
     MinePage(),
   ];
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -63,18 +66,13 @@ class _IndexMobilePageState extends ConsumerState<IndexMobilePage>
       children: [
         BackGroundWidget(
           child: Scaffold(
-            backgroundColor: Colors.transparent,
             body: PageView(
               controller: _pageController,
               physics: const NeverScrollableScrollPhysics(),
               children: _pages,
             ),
             bottomNavigationBar: BottomAppBar(
-              elevation: 0,
               notchMargin: 6,
-              shadowColor: Colors.white,
-              color: Colors.white,
-              //底部工具栏的颜色。
               shape: const CircularNotchedRectangle(),
               child: Row(
                 //里边可以放置大部分Widget，让我们随心所欲的设计底栏

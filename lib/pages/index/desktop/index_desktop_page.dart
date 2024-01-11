@@ -35,6 +35,7 @@ class _IndexDesktopPageState extends State<IndexDesktopPage> {
                 width: 180,
                 child: IndexDesktopMenu(),
               ),
+              const VerticalDivider(width: 0.5),
               Expanded(
                 child: Container(
                   child: Column(

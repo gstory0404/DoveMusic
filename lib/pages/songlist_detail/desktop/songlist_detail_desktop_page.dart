@@ -34,7 +34,6 @@ class SongListDetailDesktopPage extends ConsumerWidget {
     });
     final model = ref.watch(songListDetailProvider(songListId));
     return Scaffold(
-        backgroundColor: Colors.white60,
         body: StatusWidget(
           status: model.status,
           child: Container(

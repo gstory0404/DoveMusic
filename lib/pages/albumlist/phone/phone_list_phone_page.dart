@@ -19,37 +19,39 @@ class AlbumListPhonePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(albumListProvider);
-    return BackGroundWidget(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            S.current.album,
+    return Scaffold(
+      body: BackGroundWidget(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              S.current.album,
+            ),
           ),
-        ),
-        backgroundColor: Colors.white60,
-        body: StatusWidget(
-          status: model.status,
-          child: Container(
-            child: EasyRefresh(
-              controller: model.controller,
-              triggerAxis: Axis.vertical,
-              onRefresh: () {
-                ref.read(albumListProvider.notifier).refreshPage();
-              },
-              onLoad: () {
-                ref.read(albumListProvider.notifier).loadMorePage();
-              },
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, //横轴三个子widget
-                  childAspectRatio: 1, //子widget宽高比例
-                ),
-                itemCount: model.albumList.length,
-                itemBuilder: (context, index) {
-                  return AlbumListDesktopItem(
-                    entity: model.albumList[index],
-                  );
+          backgroundColor: Colors.white60,
+          body: StatusWidget(
+            status: model.status,
+            child: Container(
+              child: EasyRefresh(
+                controller: model.controller,
+                triggerAxis: Axis.vertical,
+                onRefresh: () {
+                  ref.read(albumListProvider.notifier).refreshPage();
                 },
+                onLoad: () {
+                  ref.read(albumListProvider.notifier).loadMorePage();
+                },
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, //横轴三个子widget
+                    childAspectRatio: 1, //子widget宽高比例
+                  ),
+                  itemCount: model.albumList.length,
+                  itemBuilder: (context, index) {
+                    return AlbumListDesktopItem(
+                      entity: model.albumList[index],
+                    );
+                  },
+                ),
               ),
             ),
           ),

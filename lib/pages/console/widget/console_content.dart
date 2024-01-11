@@ -22,12 +22,11 @@ class ConsoleContent extends ConsumerWidget {
           Container(
             margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: SettingItem(
               title: S.current.syncMusic,
-              content: IconWidget(icon: Icons.chevron_right, size: 16),
+              content: const Icon(Icons.chevron_right, size: 16),
               onTap: () {
                 ref.watch(consoleProvider.notifier).syncMusic();
                 showDialog(

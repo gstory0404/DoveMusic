@@ -55,8 +55,6 @@ class LMHttp {
   ///初始化
   ///
   /// [baseUrl] 服务器域名
-  /// [connectTimeout] 连接超时赶时间
-  /// [receiveTimeout] 接收超时赶时间
   /// [interceptors] 拦截器
   void init({
     String? baseUrl,
@@ -67,8 +65,8 @@ class LMHttp {
   }) {
     dio.options = dio.options.copyWith(
       baseUrl: baseUrl,
-      connectTimeout: connectTimeout ?? const Duration(seconds: 30),
-      receiveTimeout: receiveTimeout ?? const Duration(seconds: 30),
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 30),
       headers: headers ?? const {},
     );
     // 在初始化http类的时候，可以传入拦截器
@@ -128,7 +126,7 @@ class LMHttp {
     Success<T>? success,
     Fail? fail,
   }) async {
-    if(dio.options.baseUrl.isEmpty){
+    if (dio.options.baseUrl.isEmpty) {
       //初始化
       LMHttp.instance.init(baseUrl: SPManager.instance.getHost());
     }
@@ -157,7 +155,7 @@ class LMHttp {
         //token过期 清理用户缓存
         if (entity.code! == ErrorCode.tokenExpired) {
           SPManager.instance.cleanUserInfo();
-          Future.delayed(const Duration(milliseconds:0)).then((onValue)  {
+          Future.delayed(const Duration(milliseconds: 0)).then((onValue) {
             LoginPage.go(rootNavigatorKey.currentState!.overlay!.context);
           });
         }

@@ -21,7 +21,6 @@ class PlayDesktopPage extends ConsumerWidget {
     final picture =
         ref.watch(playProvider.select((value) => value.musicEntity?.picture));
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
         children: [
           FilteredWidget(

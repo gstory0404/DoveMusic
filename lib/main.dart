@@ -19,7 +19,6 @@ import 'package:window_manager/window_manager.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initWindow();
-  initSP();
   initAudio();
   runApp(const ProviderScope(
     child: MyApp(),
@@ -50,10 +49,6 @@ void initWindow() async {
   }
 }
 
-void initSP() async {
-  SPManager.instance;
-}
-
 void initAudio() async {
   if (!kIsWeb) {
     await JustAudioBackground.init(
@@ -62,7 +57,6 @@ void initAudio() async {
       androidNotificationOngoing: true,
     );
   }
-  AudioManager.instance;
 }
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

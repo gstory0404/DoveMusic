@@ -35,11 +35,8 @@ class InkWidget extends StatelessWidget {
         //设置背景
         child: InkResponse(
           borderRadius: BorderRadius.all(Radius.circular(radius)),
-          //点击或者toch控件高亮时显示的控件在控件上层,水波纹下层
-          hoverColor:  Colors.black12,
-          //点击或者toch控件高亮的shape形状
+          //点击或者touch控件高亮的shape形状
           highlightShape: BoxShape.rectangle,
-          // splashColor: Theme.of(context).colorScheme.surface,
           //true表示要剪裁水波纹响应的界面   false不剪裁  如果控件是圆角不剪裁的话水波纹是矩形
           containedInkWell: true,
           onTap: onTap,

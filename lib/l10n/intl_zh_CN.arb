@@ -76,5 +76,7 @@
   "music": "歌曲",
   "delete": "删除",
   "addSuccess": "添加成功",
-  "deleteSuccess": "删除成功"
+  "deleteSuccess": "删除成功",
+  "tips": "提示",
+  "goSync": "暂无数据，是否前往同步?"
 }

@@ -24,14 +24,13 @@ class SingerPhonePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(singerProvider(singerId));
     return BackGroundWidget(
-        child: Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "${model.singer?.name}",
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "${model.singer?.name}",
+          ),
         ),
-      ),
-      backgroundColor: Colors.white60,
-      body: StatusWidget(
+        body: StatusWidget(
           status: model.status,
           child: Container(
             child: Column(
@@ -81,7 +80,9 @@ class SingerPhonePage extends ConsumerWidget {
                 ),
               ],
             ),
-          )),
-    ));
+          ),
+        ),
+      ),
+    );
   }
 }

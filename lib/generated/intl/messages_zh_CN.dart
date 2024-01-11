@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterSurePsd": MessageLookupByLibrary.simpleMessage("确认新密码"),
         "errorTips": MessageLookupByLibrary.simpleMessage("数据获取失败"),
         "exit": MessageLookupByLibrary.simpleMessage("退出"),
+        "goSync": MessageLookupByLibrary.simpleMessage("暂无数据，是否前往同步?"),
         "home": MessageLookupByLibrary.simpleMessage("推荐"),
         "importSongs": MessageLookupByLibrary.simpleMessage("导入歌曲"),
         "language": MessageLookupByLibrary.simpleMessage("语言"),
@@ -98,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sure": MessageLookupByLibrary.simpleMessage("确认"),
         "surePsdErr": MessageLookupByLibrary.simpleMessage("新密码与确认密码不一致"),
         "syncMusic": MessageLookupByLibrary.simpleMessage("同步歌曲"),
-        "theme": MessageLookupByLibrary.simpleMessage("主题设置")
+        "theme": MessageLookupByLibrary.simpleMessage("主题设置"),
+        "tips": MessageLookupByLibrary.simpleMessage("提示")
       };
 }

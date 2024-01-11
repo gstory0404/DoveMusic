@@ -21,7 +21,6 @@ class RecentlyDesktopPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(recentlyProvider);
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: StatusWidget(status: model.status, child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

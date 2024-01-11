@@ -31,17 +31,18 @@ class IconWidget extends StatelessWidget {
       onTap: onPress,
       child: Container(
         padding: const EdgeInsets.all(6),
+        color: Colors.transparent,
         child: isSelect
             ? Icon(
-          selectedIcon,
-          size: size,
-          color: selectedColor,
-        )
+                selectedIcon,
+                size: size,
+                color: selectedColor,
+              )
             : Icon(
-          icon,
-          size: size,
-          color: iconColor,
-        ),
+                icon,
+                size: size,
+                color: iconColor,
+              ),
       ),
     );
   }

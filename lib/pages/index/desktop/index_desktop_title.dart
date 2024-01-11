@@ -28,7 +28,6 @@ class IndexDesktopTitle extends StatelessWidget {
         children: [
           IconWidget(
             icon: Icons.arrow_back_ios_new_outlined,
-            iconColor: Colors.white,
             size: 20,
             onPress: () {
               if (context.canPop()) context.pop();
@@ -45,7 +44,7 @@ class IndexDesktopTitle extends StatelessWidget {
               height: 26,
               width: 160,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(18),
               ),
               child:  Row(
@@ -53,7 +52,6 @@ class IndexDesktopTitle extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.search_outlined,
-                    color: Colors.black,
                     size: 18,
                   ),
                   Text(
@@ -97,7 +95,6 @@ class IndexDesktopTitle extends StatelessWidget {
             },
             icon: Icon(
               Icons.settings_outlined,
-              color: Theme.of(context).colorScheme.surface,
               size: 20,
             ),
           )

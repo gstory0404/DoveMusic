@@ -22,7 +22,6 @@ class SingerDesktopPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(singerProvider(singerId));
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: StatusWidget(
           status: model.status,
           child: Container(

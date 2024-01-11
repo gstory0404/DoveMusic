@@ -24,7 +24,6 @@ class SingerListPhonePage extends ConsumerWidget {
         appBar: AppBar(
           title: Text(S.current.singer),
         ),
-        backgroundColor: Colors.white60,
         body: StatusWidget(
             status: model.status,
             child: Container(

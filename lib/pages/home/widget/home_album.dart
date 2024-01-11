@@ -33,14 +33,11 @@ class HomeAlbum extends ConsumerWidget {
                     color: Theme.of(context).primaryColor,
                     width: 4,
                     height: 20,
-                    margin:
-                    const EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10),
                   ),
                   Text(
                     S.current.album,
-                    style: const TextStyle(
-                        fontSize: 22,
-                        color: Colors.black),
+                    style: const TextStyle(fontSize: 22, color: Colors.black),
                   )
                 ],
               ),
@@ -53,22 +50,21 @@ class HomeAlbum extends ConsumerWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             alignment: Alignment.centerLeft,
             height: 120,
-            child: ListView(
-              shrinkWrap: true,
-              //沿竖直方向上布局
-              scrollDirection: Axis.horizontal,
-              // padding: const EdgeInsets.symmetric(horizontal: 10),
-              //每个子组件的宽度
-              itemExtent: 100,
-              children: albumList
-                      ?.map((e) => HomeAlbumItem(
-                            entity: e,
-                          ))
-                      .toList() ??
-                  [],
+            child: ScrollConfiguration(
+              behavior:
+                  ScrollConfiguration.of(context).copyWith(scrollbars: false),
+              child: ListView.builder(
+                itemCount: albumList?.length,
+                scrollDirection: Axis.horizontal,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemExtent: 100,
+                itemBuilder: (BuildContext context, int index) {
+                  return HomeAlbumItem(entity: albumList![index]);
+                },
+              ),
             ),
           )
         ],

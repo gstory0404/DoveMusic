@@ -29,76 +29,69 @@ class SearchPhonePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(searchProvider);
-    return BackGroundWidget(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 30,
-                  child: TextField(
-                    // focusNode: _nameFocusNode,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: const EdgeInsets.only(top: 0, bottom: 0),
-                      border: const OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(20.0))),
-                      hintText: S.current.enterMusicName,
-                      hintStyle:
-                          const TextStyle(fontSize: 16, color: Colors.grey),
-                      prefixIcon: const Icon(
-                        Icons.music_note_rounded,
-                        size: 18,
+    return Scaffold(
+      body: BackGroundWidget(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 30,
+                    child: TextField(
+                      // focusNode: _nameFocusNode,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.only(top: 0, bottom: 0),
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(20.0))),
+                        hintText: S.current.enterMusicName,
+                        hintStyle:
+                        const TextStyle(fontSize: 16, color: Colors.grey),
+                        prefixIcon: const Icon(
+                          Icons.music_note_rounded,
+                          size: 18,
+                        ),
                       ),
+                      controller: _textEditingController,
                     ),
-                    controller: _textEditingController,
                   ),
                 ),
-              ),
-              InkWidget(
-                onTap: () {
-                  if (_textEditingController.text.isEmpty) {
-                    ToastUtils.show(S.current.enterMusicName);
-                    return;
-                  }
-                  ref
-                      .read(searchProvider.notifier)
-                      .getSearchList(_textEditingController.text);
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 10),
-                  alignment: Alignment.center,
-                  width: 80,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Text(
-                    S.current.search,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                InkWidget(
+                  onTap: () {
+                    if (_textEditingController.text.isEmpty) {
+                      ToastUtils.show(S.current.enterMusicName);
+                      return;
+                    }
+                    ref
+                        .read(searchProvider.notifier)
+                        .getSearchList(_textEditingController.text);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10),
+                    alignment: Alignment.center,
+                    width: 80,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Text(
+                      S.current.search,
+                      style: TextStyle(fontSize: 14, color: Colors.white),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        backgroundColor: Colors.transparent,
-        body: StatusWidget(
-          status: model.status,
-          replay: () {
-            ref
-                .read(searchProvider.notifier)
-                .getSearchList(_textEditingController.text);
-          },
-          child: EasyRefresh(
-            controller: model.controller,
-            triggerAxis: Axis.vertical,
-            onRefresh: () {
+          backgroundColor: Colors.transparent,
+          body: StatusWidget(
+            status: model.status,
+            replay: () {
               ref
                   .read(searchProvider.notifier)
                   .getSearchList(_textEditingController.text);

@@ -26,7 +26,6 @@ class RecentlyPhonePage extends ConsumerWidget {
           appBar: AppBar(
             title: Text(S.current.recent),
           ),
-          backgroundColor: Colors.white60,
           body: StatusWidget(
             status: model.status,
             child: Container(

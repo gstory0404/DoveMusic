@@ -53,16 +53,16 @@ class PlayPhonePage extends ConsumerWidget {
                   progress: state.curDuration,
                   buffered: state.bufferedDuration,
                   total: state.maxDuration,
-                  progressBarColor: Theme.of(context).colorScheme.background,
+                  progressBarColor: Theme.of(context).colorScheme.primary,
                   baseBarColor:
                       Colors.white,
                   bufferedBarColor: Theme.of(context)
                       .colorScheme
-                      .background
+                      .primary
                       .withOpacity(0.24),
                   timeLabelLocation: TimeLabelLocation.none,
                   thumbColor: Theme.of(context).colorScheme.background,
-                  barHeight: 4.0,
+                  barHeight: 6.0,
                   thumbRadius: 2.0,
                   onSeek: (duration) {
                     AudioManager.instance.seek(duration);
@@ -81,6 +81,7 @@ class PlayPhonePage extends ConsumerWidget {
                       isSelect: false,
                       size: 28,
                       iconColor: Colors.white,
+                      selectedColor: Colors.white,
                       onPress: () {
                         if (state.shuffleModeEnabled) {
                           AudioManager.instance.setShuffleMode(false);
@@ -103,6 +104,7 @@ class PlayPhonePage extends ConsumerWidget {
                       isSelect: false,
                       size: 30,
                       iconColor: Colors.white,
+                      selectedColor: Colors.white,
                       onPress: () {
                         AudioManager.instance.previous();
                       },
@@ -125,6 +127,7 @@ class PlayPhonePage extends ConsumerWidget {
                       isSelect: false,
                       size: 30,
                       iconColor: Colors.white,
+                      selectedColor: Colors.white,
                       onPress: () {
                         AudioManager.instance.next();
                       },
@@ -135,6 +138,7 @@ class PlayPhonePage extends ConsumerWidget {
                       isSelect: false,
                       size: 28,
                       iconColor: Colors.white,
+                      selectedColor: Colors.white,
                       onPress: () {
                         Navigator.push(context, VolumeWidget());
                       },

@@ -6,11 +6,12 @@ import 'package:larkmusic/pages/albumlist/album_list_page.dart';
 import 'package:larkmusic/pages/home/home_page.dart';
 import 'package:larkmusic/pages/index/desktop/index_desktop_item.dart';
 import 'package:larkmusic/pages/index/index_provider.dart';
+import 'package:larkmusic/pages/mine/mine_page.dart';
 import 'package:larkmusic/pages/recently/recently_page.dart';
 import 'package:larkmusic/pages/singerlist/singer_list_page.dart';
 import 'package:larkmusic/pages/songlist/song_list_page.dart';
 import 'package:larkmusic/pages/songlist_detail/songlist_detail_page.dart';
-import 'package:larkmusic/pages/songlist_detail/widget/songlist_creat_dialog.dart';
+import 'package:larkmusic/pages/songlist_detail/widget/songlist_create_dialog.dart';
 import 'package:larkmusic/widget/icon_widget.dart';
 
 /// @Author: gstory
@@ -46,9 +47,10 @@ class _IndexDesktopMenuState extends State<IndexDesktopMenu> {
                   height: 50,
                   fit: BoxFit.fitWidth,
                 ),
+                const SizedBox(height: 10),
                 Text(
                   S.current.appName,
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ],
             ),
@@ -58,12 +60,10 @@ class _IndexDesktopMenuState extends State<IndexDesktopMenu> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
                 Container(
-                  // margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Text(
                     S.current.online,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Theme.of(context).colorScheme.onBackground),
+                    style: const TextStyle(fontSize: 12,color: Colors.black45),
                   ),
                 ),
                 IndexDesktopItem(
@@ -92,56 +92,17 @@ class _IndexDesktopMenuState extends State<IndexDesktopMenu> {
                       SongListPage.go(context);
                     }),
                 Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    children: [
-                      Text(
-                        S.current.mySongList,
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Theme.of(context).colorScheme.onBackground),
-                      ),
-                      const SizedBox(width: 10),
-                      Consumer(builder: (context, ref, _) {
-                        return IconWidget(
-                          icon: Icons.note_add_outlined,
-                          iconColor: Colors.white,
-                          size: 16,
-                          onPress: () {
-                            showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return SongListCreateWidget();
-                                    })
-                                .then((value) => ref
-                                    .read(indexProvider.notifier)
-                                    .getOwnSongList());
-                          },
-                        );
-                      }),
-                    ],
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Text(
+                    S.current.personalCenter,
+                    style: const TextStyle(fontSize: 12,color: Colors.black45),
                   ),
                 ),
-                Consumer(
-                  builder: (context, ref, _) {
-                    var songList = ref
-                        .watch(indexProvider.select((value) => value.songList));
-                    return Column(
-                      // shrinkWrap: true,
-                      children: songList
-                          .map(
-                            (item) => IndexDesktopItem(
-                              title: "${item.name}",
-                              onTap: () {
-                                SongListDetailPage.go(context, item.id);
-                              },
-                            ),
-                          )
-                          .toList(),
-                    );
-                  },
-                ),
+                IndexDesktopItem(
+                    title: S.current.mySongList,
+                    onTap: () {
+                      MinePage.go(context);
+                    }),
               ],
             ),
           )

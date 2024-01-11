@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:larkmusic/pages/base/base_page.dart';
 import 'package:larkmusic/pages/index/phone/index_mobile_page.dart';
 
+import '../../routes/app_pages.dart';
 import 'desktop/index_desktop_page.dart';
 
 /// @Author: gstory
@@ -13,6 +15,13 @@ class IndexPage extends BasePage {
   Widget? child;
 
   IndexPage({super.key, this.child});
+
+  static void go(BuildContext context) {
+    context.goNamed(RouterPage.home);
+    if (context.canPop()) {
+      context.pop();
+    }
+  }
 
   @override
   Widget desktop() {

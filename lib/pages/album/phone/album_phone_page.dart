@@ -30,7 +30,6 @@ class AlbumPhonePage extends ConsumerWidget {
         appBar: AppBar(
           title: Text("${album?.name}"),
         ),
-        backgroundColor: Colors.white60,
         body: StatusWidget(
             status: status,
             child: Container(

@@ -20,62 +20,56 @@ class HomeRandom extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final randomMusicList =
         ref.watch(homeProvider.select((value) => value.randomMusicList));
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                color: Theme.of(context).primaryColor,
-                width: 4,
-                height: 20,
-                margin: const EdgeInsets.only(right: 10),
-              ),
-              Text(
-                S.current.recommend,
-                style: const TextStyle(fontSize: 22, color: Colors.black),
-              ),
-              const SizedBox(width: 10),
-              PlayAllButton(
-                title: S.current.playAll,
-                icon: Icons.play_arrow,
-                onTap: () {
-                  if (randomMusicList?.isNotEmpty ?? false) {
-                    AudioManager.instance.setList(randomMusicList!, 0);
-                  }
-                },
-              ),
-              const SizedBox(width: 6),
-              PlayAllButton(
-                title: S.current.refresh,
-                icon: Icons.refresh,
-                onTap: () {
-                  ref.watch(homeProvider.notifier).getRandomList();
-                },
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            height: 100,
-            child: ListView(
-              shrinkWrap: true,
-              //沿竖直方向上布局
-              scrollDirection: Axis.horizontal,
-              //每个子组件的宽度
-              itemExtent: 80,
-              children: randomMusicList
-                      ?.map((e) => HomeMusicItem(
-                            entity: e,
-                          ))
-                      .toList() ??
-                  [],
+    return randomMusicList?.isNotEmpty ?? false
+        ? Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      color: Theme.of(context).primaryColor,
+                      width: 4,
+                      height: 20,
+                      margin: const EdgeInsets.only(right: 10),
+                    ),
+                    Text(
+                      S.current.recommend,
+                      style: const TextStyle(fontSize: 22, color: Colors.black),
+                    ),
+                    const SizedBox(width: 10),
+                    PlayAllButton(
+                      title: S.current.playAll,
+                      icon: Icons.play_arrow,
+                      onTap: () {
+                        if (randomMusicList?.isNotEmpty ?? false) {
+                          AudioManager.instance.setList(randomMusicList!, 0);
+                        }
+                      },
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  height: 100,
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context)
+                        .copyWith(scrollbars: false),
+                    child: ListView.builder(
+                      itemCount: randomMusicList?.length,
+                      scrollDirection: Axis.horizontal,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemExtent: 80,
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomeMusicItem(entity: randomMusicList![index]);
+                      },
+                    ),
+                  ),
+                )
+              ],
             ),
           )
-        ],
-      ),
-    );
+        : Container();
   }
 }

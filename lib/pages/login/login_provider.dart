@@ -34,7 +34,7 @@ class LoginState {
   LoginState.initial()
       : url = SPManager.instance.getHost(),
         account = SPManager.instance.getAccount(),
-        password = SPManager.instance.getAccount(),
+        password = SPManager.instance.getPassword(),
         loginEntity = SPManager.instance.getUserInfo(),
         errMsg = null;
 
@@ -49,8 +49,8 @@ class LoginState {
       url: url ?? this.url,
       account: account ?? this.account,
       password: password ?? this.password,
-      loginEntity: loginEntity ?? this.loginEntity,
-      errMsg: errMsg ?? this.errMsg,
+      loginEntity: loginEntity,
+      errMsg: errMsg,
     );
   }
 }
@@ -75,21 +75,13 @@ class LoginViewModel extends StateNotifier<LoginState> {
       var baseUrl =
           dotenv.get("BASE_URL", fallback: SPManager.instance.getHost());
       if (SPManager.instance.getHost().isEmpty && baseUrl.isNotEmpty) {
-        SPManager.instance.saveHost(baseUrl);
         setHost(baseUrl);
       }
     });
-    //读取本地缓存
-    setHost(SPManager.instance.getHost());
-    setAccount(SPManager.instance.getAccount());
-    setPassword(SPManager.instance.getPassword());
-    state = state.copyWith(
-        loginEntity: SPManager.instance.getUserInfo(), errMsg: null);
   }
 
   //输入域名
   void setHost(String url) {
-    LogUtil.d(url);
     //初始化
     LMHttp.instance.init(baseUrl: SPManager.instance.getHost());
     SPManager.instance.saveHost(url);

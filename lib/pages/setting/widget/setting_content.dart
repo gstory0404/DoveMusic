@@ -38,8 +38,7 @@ class SettingContent extends StatelessWidget {
                       //控制台
                       SettingItem(
                         title: S.current.console,
-                        content:
-                            IconWidget(icon: Icons.chevron_right, size: 16),
+                        content: const Icon(Icons.chevron_right, size: 16),
                         onTap: () {
                           ConsolePage.go(context);
                         },
@@ -59,24 +58,16 @@ class SettingContent extends StatelessWidget {
               children: [
                 SettingItem(
                   title: S.current.theme,
-                  content: IconWidget(icon: Icons.chevron_right, size: 16),
+                  content: const Icon(Icons.chevron_right, size: 16),
                   onTap: () {},
                 ),
-                Container(
-                  color: Colors.grey,
-                  height: 0.5,
-                  width: MediaQuery.of(context).size.width,
-                ),
+                const Divider(height: 0.5),
                 SettingItem(
                   title: S.current.playbackSetting,
-                  content: IconWidget(icon: Icons.chevron_right, size: 16),
+                  content: const Icon(Icons.chevron_right, size: 16),
                   onTap: () {},
                 ),
-                Container(
-                  color: Colors.grey,
-                  height: 0.5,
-                  width: MediaQuery.of(context).size.width,
-                ),
+                const Divider(height: 0.5),
                 Consumer(builder: (context, ref, _) {
                   var locale =
                       ref.watch(localeProvider.select((value) => value));
@@ -99,7 +90,6 @@ class SettingContent extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
@@ -111,33 +101,28 @@ class SettingContent extends StatelessWidget {
                     content: Text(
                         "v${ref.watch(settingProvider.select((value) => value.appVersion))}"),
                     onTap: () async {
-                      await launchUrl(Uri.parse("https://github.com/gstory0404/LarkMusic/releases"));
+                      await launchUrl(Uri.parse(
+                          "https://github.com/gstory0404/LarkMusic/releases"));
                     },
                   );
                 }),
-                Container(
-                  color: Colors.grey,
-                  height: 0.5,
-                  width: MediaQuery.of(context).size.width,
-                ),
+                const Divider(height: 0.5),
                 //项目主页
                 SettingItem(
                   title: S.current.appHome,
-                  content: const Text("https://github.com/gstory0404/LarkMusic"),
-                  onTap: ()  async {
-                    await launchUrl(Uri.parse("https://github.com/gstory0404/LarkMusic"));
+                  content:
+                      const Text("https://github.com/gstory0404/LarkMusic",style: TextStyle(fontSize: 12),maxLines: 1),
+                  onTap: () async {
+                    await launchUrl(
+                        Uri.parse("https://github.com/gstory0404/LarkMusic"));
                   },
                 ),
-                Container(
-                  color: Colors.grey,
-                  height: 0.5,
-                  width: MediaQuery.of(context).size.width,
-                ),
+                const Divider(height: 0.5),
                 //开源协议
                 Consumer(builder: (context, ref, _) {
                   return SettingItem(
                     title: S.current.protocol,
-                    content: IconWidget(icon: Icons.chevron_right, size: 16),
+                    content: const Icon(Icons.chevron_right, size: 16),
                     onTap: () {
                       showLicensePage(
                         context: context,
@@ -147,7 +132,8 @@ class SettingContent extends StatelessWidget {
                           width: 100,
                         ),
                         applicationName: S.current.appName,
-                        applicationVersion:  "v${ref.watch(settingProvider.select((value) => value.appVersion))}",
+                        applicationVersion:
+                            "v${ref.watch(settingProvider.select((value) => value.appVersion))}",
                         applicationLegalese: S.current.appDesc,
                       );
                     },

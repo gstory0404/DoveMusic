@@ -1,12 +1,15 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:larkmusic/pages/console/console_page.dart';
+import 'package:larkmusic/pages/home/widget/go_sync_dialog.dart';
 import 'package:larkmusic/pages/home/widget/home_album.dart';
 import 'package:larkmusic/pages/home/widget/home_recently.dart';
 import 'package:larkmusic/pages/home/widget/home_songlist.dart';
 import 'package:larkmusic/pages/home/home_provider.dart';
 import 'package:larkmusic/widget/status_widget.dart';
 
+import '../../../generated/l10n.dart';
 import '../widget/home_random.dart';
 import '../widget/home_singer.dart';
 
@@ -15,11 +18,45 @@ import '../widget/home_singer.dart';
 /// @Email gstory0404@gmail.com
 /// @Description: 首页 桌面端
 
-class HomeDesktopPage extends ConsumerWidget {
+class HomeDesktopPage extends ConsumerStatefulWidget {
+
+
+
   HomeDesktopPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return HomeDesktopPageState();
+  }
+}
+
+class HomeDesktopPageState extends ConsumerState<HomeDesktopPage> {
+
+  bool _isShowSycDialog = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((mag) {
+      ref.watch(homeProvider.notifier).addListener(
+            (state) {
+            if (state.latestMusicList != null && state.latestMusicList!.isEmpty && !_isShowSycDialog) {
+              _isShowSycDialog = true;
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return GoSyncDialog();
+                },
+              );
+            }
+        },
+      );
+    });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
     var model = ref.watch(homeProvider);
     return Scaffold(
       backgroundColor: Colors.white60,

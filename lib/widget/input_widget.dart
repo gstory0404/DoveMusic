@@ -67,38 +67,30 @@ class _InputWidgetState extends State<InputWidget> {
       child: TextField(
         focusNode: _focusNode,
         controller: _controller,
-        cursorColor: Theme.of(context).colorScheme.inversePrimary,
-        style: TextStyle(
-            fontSize: 14, color: Theme.of(context).colorScheme.inversePrimary),
+        style: const TextStyle(
+          fontSize: 14,
+        ),
         maxLines: widget.maxLines,
         minLines: widget.minLines,
         maxLength: widget.maxLength,
         decoration: InputDecoration(
           filled: false,
-          focusColor: Theme.of(context).colorScheme.inversePrimary,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
           icon: widget.icon,
-          iconColor: _hasFocus
-              ? Theme.of(context).primaryColor
-              : Theme.of(context).colorScheme.inversePrimary,
           labelText: widget.lable,
-          labelStyle: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).colorScheme.inversePrimary),
+          labelStyle: const TextStyle(
+            fontSize: 14,
+          ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(widget.radius ?? 30),
             ),
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.inversePrimary),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(widget.radius ?? 30),
             ),
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.primary),
           ),
         ),
         onChanged: widget.onChanged,

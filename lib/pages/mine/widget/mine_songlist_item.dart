@@ -5,7 +5,7 @@ import 'package:larkmusic/pages/index/index_provider.dart';
 import '../../../generated/l10n.dart';
 import '../../../widget/icon_widget.dart';
 import '../../songlist/desktop/song_list_desktop_item.dart';
-import '../../songlist_detail/widget/songlist_creat_dialog.dart';
+import '../../songlist_detail/widget/songlist_create_dialog.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/11/13 12:19

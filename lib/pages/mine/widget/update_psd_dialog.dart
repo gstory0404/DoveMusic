@@ -30,8 +30,7 @@ class _UpdatePsdDialogState extends State<UpdatePsdDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(S.current.changePsd),
-      titleTextStyle: TextStyle(fontSize: 20, color: Colors.white),
-      backgroundColor: Colors.white60,
+      titleTextStyle: const TextStyle(fontSize: 20),
       content: Wrap(
         children: [
           Column(

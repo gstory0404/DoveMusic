@@ -9,6 +9,7 @@ import 'package:larkmusic/widget/background_widget.dart';
 import 'package:larkmusic/widget/ink_widget.dart';
 import 'package:larkmusic/widget/input_widget.dart';
 
+import '../../../config/assets_image.dart';
 import '../../../utils/sp/sp_manager.dart';
 
 /// @Author: gstory
@@ -29,7 +30,7 @@ class LoginPhonePageState extends ConsumerState<LoginPhonePage> {
   @override
   void initState() {
     super.initState();
-    if(SPManager.instance.getUserInfo().token?.isNotEmpty ?? false){
+    if (SPManager.instance.getUserInfo().token?.isNotEmpty ?? false) {
       HomePage.go(context);
     }
     WidgetsBinding.instance.addPostFrameCallback((mag) {
@@ -58,12 +59,15 @@ class LoginPhonePageState extends ConsumerState<LoginPhonePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset(
+                    AssetsImages.logo,
+                    width: 60,
+                    height: 60,
+                  ),
+                  const SizedBox(height: 10),
                   Text(
                     S.current.appName,
-                    style: TextStyle(
-                        fontSize: 26,
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontFamily: 'RobotoMono'),
+                    style: const TextStyle(fontSize: 26),
                   ),
                   const SizedBox(height: 100),
                   InputWidget(
@@ -103,15 +107,15 @@ class LoginPhonePageState extends ConsumerState<LoginPhonePage> {
                     //在最外层包裹InkWell组件
                     onTap: () async {
                       if (model.url.isEmpty) {
-                        ToastUtils.show( S.current.serviceUrlNotEmpty);
+                        ToastUtils.show(S.current.serviceUrlNotEmpty);
                         return;
                       }
                       if (model.account.isEmpty) {
-                        ToastUtils.show( S.current.accountNotEmpty);
+                        ToastUtils.show(S.current.accountNotEmpty);
                         return;
                       }
                       if (model.password.isEmpty) {
-                        ToastUtils.show( S.current.passwordNotEmpty);
+                        ToastUtils.show(S.current.passwordNotEmpty);
                         return;
                       }
                       ref.read(loginProvider.notifier).login();
@@ -121,13 +125,8 @@ class LoginPhonePageState extends ConsumerState<LoginPhonePage> {
                       width: 300,
                       height: 50,
                       child: Center(
-                        child: Text(
-                          S.current.login,
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary),
-                        ),
+                        child: Text(S.current.login,
+                            style: const TextStyle(fontSize: 14)),
                       ),
                     ),
                   ),

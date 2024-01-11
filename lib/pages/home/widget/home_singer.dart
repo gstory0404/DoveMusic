@@ -17,60 +17,60 @@ class HomeSinger extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final singerList = ref.watch(homeProvider.select((value) => value.singerList));
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    color: Theme.of(context).primaryColor,
-                    width: 4,
-                    height: 20,
-                    margin:
-                    const EdgeInsets.only(right: 10),
+    final singerList =
+        ref.watch(homeProvider.select((value) => value.singerList));
+    return singerList?.isNotEmpty ?? false
+        ? Container(
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          color: Theme.of(context).primaryColor,
+                          width: 4,
+                          height: 20,
+                          margin: const EdgeInsets.only(right: 10),
+                        ),
+                        Text(
+                          S.current.singer,
+                          style: const TextStyle(
+                              fontSize: 22, color: Colors.black),
+                        )
+                      ],
+                    ),
+                    InkWidget(
+                      onTap: () {
+                        SingerListPage.go(context);
+                      },
+                      child: Text("${S.current.more} >"),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  height: 110,
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context)
+                        .copyWith(scrollbars: false),
+                    child: ListView.builder(
+                      itemCount: singerList?.length,
+                      scrollDirection: Axis.horizontal,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemExtent: 100,
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomeSingerItem(entity: singerList![index]);
+                      },
+                    ),
                   ),
-                  Text(
-                    S.current.singer,
-                    style: const TextStyle(
-                        fontSize: 22,
-                        color: Colors.black),
-                  )
-                ],
-              ),
-              InkWidget(
-                onTap: () {
-                  SingerListPage.go(context);
-                },
-                child: Text("${S.current.more} >"),
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            alignment: Alignment.centerLeft,
-            height: 110,
-            child: ListView(
-              shrinkWrap: true,
-              //沿竖直方向上布局
-              scrollDirection: Axis.horizontal,
-              // padding: const EdgeInsets.symmetric(horizontal: 10),
-              //每个子组件的宽度
-              itemExtent: 100,
-              children: singerList
-                      ?.map((e) => HomeSingerItem(
-                            entity: e,
-                          ))
-                      .toList() ??
-                  [],
+                )
+              ],
             ),
           )
-        ],
-      ),
-    );
+        : Container();
   }
 }

@@ -19,7 +19,6 @@ class SingerListDesktopPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(singerListProvider);
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: StatusWidget(status: model.status, child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

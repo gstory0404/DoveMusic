@@ -29,7 +29,6 @@ class SearchDesktopPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(searchProvider);
     return Scaffold(
-      backgroundColor: Colors.white60,
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,202 +103,193 @@ class SearchDesktopPage extends ConsumerWidget {
                       .read(searchProvider.notifier)
                       .getSearchList(_textEditingController.text);
                 },
-                child: EasyRefresh(
-                  controller: model.controller,
-                  triggerAxis: Axis.vertical,
-                  onRefresh: () {
-                    ref
-                        .read(searchProvider.notifier)
-                        .getSearchList(_textEditingController.text);
-                  },
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        //歌单
-                        model.searchEntity?.songListList?.isNotEmpty ?? false
-                            ? Container(
-                                margin: const EdgeInsets.only(
-                                    left: 16, right: 16, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          color: Theme.of(context).primaryColor,
-                                          width: 4,
-                                          height: 20,
-                                          margin:
-                                              const EdgeInsets.only(right: 10),
-                                        ),
-                                        Text(
-                                          S.current.songList,
-                                          style: const TextStyle(
-                                              fontSize: 22,
-                                              color: Colors.black),
-                                        )
-                                      ],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 10),
-                                      height: 80,
-                                      child: ListView.builder(
-                                        itemCount: model
-                                            .searchEntity?.songListList?.length,
-                                        scrollDirection: Axis.horizontal,
-                                        itemExtent: 70,
-                                        shrinkWrap: true,
-                                        itemBuilder: (context, index) {
-                                          return SearchSongListItem(
-                                            entity: model.searchEntity!
-                                                .songListList![index],
-                                          );
-                                        },
-                                      ),
-                                    )
-                                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      //歌单
+                      model.searchEntity?.songListList?.isNotEmpty ?? false
+                          ? Container(
+                        margin: const EdgeInsets.only(
+                            left: 16, right: 16, top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 4,
+                                  height: 20,
+                                  margin:
+                                  const EdgeInsets.only(right: 10),
                                 ),
-                              )
-                            : Container(),
-                        //歌手
-                        model.searchEntity?.singerList?.isNotEmpty ?? false
-                            ? Container(
-                                margin: const EdgeInsets.only(
-                                    left: 16, right: 16, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          color: Theme.of(context).primaryColor,
-                                          width: 4,
-                                          height: 20,
-                                          margin:
-                                              const EdgeInsets.only(right: 10),
-                                        ),
-                                        Text(
-                                          S.current.singer,
-                                          style: const TextStyle(
-                                              fontSize: 22,
-                                              color: Colors.black),
-                                        )
-                                      ],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 10),
-                                      height: 80,
-                                      child: ListView.builder(
-                                        itemCount: model
-                                            .searchEntity?.singerList?.length,
-                                        scrollDirection: Axis.horizontal,
-                                        itemExtent: 70,
-                                        shrinkWrap: true,
-                                        itemBuilder: (context, index) {
-                                          return SearchSingerItem(
-                                            entity: model.searchEntity!
-                                                .singerList![index],
-                                          );
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            : Container(),
-                        //专辑
-                        model.searchEntity?.albumList?.isNotEmpty ?? false
-                            ? Container(
-                          margin: const EdgeInsets.only(
-                              left: 16, right: 16, top: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 4,
-                                    height: 20,
-                                    margin:
-                                    const EdgeInsets.only(right: 10),
-                                  ),
-                                  Text(
-                                    S.current.album,
-                                    style: const TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.black),
-                                  )
-                                ],
+                                Text(
+                                  S.current.songList,
+                                  style: const TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.black),
+                                )
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              height: 80,
+                              child: ListView.builder(
+                                itemCount: model
+                                    .searchEntity?.songListList?.length,
+                                scrollDirection: Axis.horizontal,
+                                itemExtent: 70,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  return SearchSongListItem(
+                                    entity: model.searchEntity!
+                                        .songListList![index],
+                                  );
+                                },
                               ),
-                              Container(
-                                margin: EdgeInsets.only(top: 10),
-                                height: 80,
-                                child: ListView.builder(
-                                  itemCount: model
-                                      .searchEntity?.albumList?.length,
-                                  scrollDirection: Axis.horizontal,
-                                  itemExtent: 70,
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                                    return SearchAlbumItem(
-                                      entity: model.searchEntity!
-                                          .albumList![index],
-                                    );
-                                  },
+                            )
+                          ],
+                        ),
+                      )
+                          : Container(),
+                      //歌手
+                      model.searchEntity?.singerList?.isNotEmpty ?? false
+                          ? Container(
+                        margin: const EdgeInsets.only(
+                            left: 16, right: 16, top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 4,
+                                  height: 20,
+                                  margin:
+                                  const EdgeInsets.only(right: 10),
                                 ),
-                              )
-                            ],
-                          ),
-                        )
-                            : Container(),
-                        //歌曲
-                        model.searchEntity?.musicList?.isNotEmpty ?? false
-                            ? Container(
-                                margin: const EdgeInsets.only(
-                                    left: 16, right: 16, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          color: Theme.of(context).primaryColor,
-                                          width: 4,
-                                          height: 20,
-                                          margin:
-                                              const EdgeInsets.only(right: 10),
-                                        ),
-                                        Text(
-                                          S.current.music,
-                                          style: const TextStyle(
-                                              fontSize: 22,
-                                              color: Colors.black),
-                                        )
-                                      ],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 10),
-                                      child: ListView.builder(
-                                        itemCount: model
-                                            .searchEntity?.musicList?.length,
-                                        shrinkWrap: true,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        itemBuilder: (context, index) {
-                                          return SearchMusicItem(
-                                            entity: model.searchEntity!
-                                                .musicList![index],
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ],
+                                Text(
+                                  S.current.singer,
+                                  style: const TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.black),
+                                )
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              height: 80,
+                              child: ListView.builder(
+                                itemCount: model
+                                    .searchEntity?.singerList?.length,
+                                scrollDirection: Axis.horizontal,
+                                itemExtent: 70,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  return SearchSingerItem(
+                                    entity: model.searchEntity!
+                                        .singerList![index],
+                                  );
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                          : Container(),
+                      //专辑
+                      model.searchEntity?.albumList?.isNotEmpty ?? false
+                          ? Container(
+                        margin: const EdgeInsets.only(
+                            left: 16, right: 16, top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 4,
+                                  height: 20,
+                                  margin:
+                                  const EdgeInsets.only(right: 10),
                                 ),
-                              )
-                            : Container(),
-                      ],
-                    ),
+                                Text(
+                                  S.current.album,
+                                  style: const TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.black),
+                                )
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              height: 80,
+                              child: ListView.builder(
+                                itemCount: model
+                                    .searchEntity?.albumList?.length,
+                                scrollDirection: Axis.horizontal,
+                                itemExtent: 70,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  return SearchAlbumItem(
+                                    entity: model.searchEntity!
+                                        .albumList![index],
+                                  );
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                          : Container(),
+                      //歌曲
+                      model.searchEntity?.musicList?.isNotEmpty ?? false
+                          ? Container(
+                        margin: const EdgeInsets.only(
+                            left: 16, right: 16, top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 4,
+                                  height: 20,
+                                  margin:
+                                  const EdgeInsets.only(right: 10),
+                                ),
+                                Text(
+                                  S.current.music,
+                                  style: const TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.black),
+                                )
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: ListView.builder(
+                                itemCount: model
+                                    .searchEntity?.musicList?.length,
+                                shrinkWrap: true,
+                                physics:
+                                const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return SearchMusicItem(
+                                    entity: model.searchEntity!
+                                        .musicList![index],
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                          : Container(),
+                    ],
                   ),
                 ),
               ),

@@ -819,6 +819,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Tips`
+  String get tips {
+    return Intl.message(
+      'Tips',
+      name: 'tips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no data yet. Do you want to synchronize it?`
+  String get goSync {
+    return Intl.message(
+      'There is no data yet. Do you want to synchronize it?',
+      name: 'goSync',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

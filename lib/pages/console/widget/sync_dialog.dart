@@ -24,7 +24,6 @@ class SyncDialog extends StatelessWidget {
     return AlertDialog(
       title: Text(S.current.syncMusic),
       titleTextStyle: const TextStyle(fontSize: 20, color: Colors.black),
-      backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       content: Container(

@@ -17,58 +17,59 @@ class HomeSongList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final songList = ref.watch(homeProvider.select((value) => value.songList));
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      alignment: Alignment.centerLeft,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    color: Theme.of(context).primaryColor,
-                    width: 4,
-                    height: 20,
-                    margin:
-                    const EdgeInsets.only(right: 10),
-                  ),
-                  Text(
-                    S.current.songList,
-                    style: const TextStyle(
-                        fontSize: 22,
-                        color: Colors.black),
-                  )
-                ],
-              ),
-              InkWell(
-                child: Text("${S.current.more} >"),
-                onTap: () {
-                  SongListPage.go(context);
-                },
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
+    return songList?.isNotEmpty ?? false
+        ? Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             alignment: Alignment.centerLeft,
-            height: 170,
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              //每个子组件的宽度
-              itemExtent: 140,
-              children: songList
-                      ?.map((e) => HomeSongListItem(
-                            entity: e,
-                          ))
-                      .toList() ??
-                  [],
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          color: Theme.of(context).primaryColor,
+                          width: 4,
+                          height: 20,
+                          margin: const EdgeInsets.only(right: 10),
+                        ),
+                        Text(
+                          S.current.songList,
+                          style: const TextStyle(
+                              fontSize: 22, color: Colors.black),
+                        )
+                      ],
+                    ),
+                    InkWell(
+                      child: Text("${S.current.more} >"),
+                      onTap: () {
+                        SongListPage.go(context);
+                      },
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  height: 160,
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context)
+                        .copyWith(scrollbars: false),
+                    child: ListView.builder(
+                      itemCount: songList?.length,
+                      scrollDirection: Axis.horizontal,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemExtent: 160,
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomeSongListItem(entity: songList![index]);
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
-        ],
-      ),
-    );
+        : Container();
   }
 }

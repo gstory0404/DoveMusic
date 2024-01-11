@@ -22,14 +22,14 @@ class SPManager implements SPImpl {
   }
 
   SPManager._internal() {
-    print("开始初始化SPManager");
-    init();
+    // init();
   }
 
   SPUtil? _spUtil;
 
   Future<void> init() async {
-    SPUtil().init().then((value) => _spUtil = value);
+    _spUtil = await SPUtil().init();
+    return;
     //sp异步的 可能会导致语言没有第一时间更新 所有初始化完成后重新更新一次
     // LanguageUtil.updateLanguage();
   }

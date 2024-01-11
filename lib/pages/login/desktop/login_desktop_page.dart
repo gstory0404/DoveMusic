@@ -10,6 +10,8 @@ import 'package:larkmusic/widget/background_widget.dart';
 import 'package:larkmusic/widget/ink_widget.dart';
 import 'package:larkmusic/widget/input_widget.dart';
 
+import '../../../config/assets_image.dart';
+
 /// @Author: gstory
 /// @CreateDate: 2023/5/24 15:11
 /// @Email gstory0404@gmail.com
@@ -58,13 +60,13 @@ class LoginDesktopPageState extends ConsumerState<LoginDesktopPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    S.current.appName,
-                    style: TextStyle(
-                        fontSize: 26,
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontFamily: 'RobotoMono'),
+                  Image.asset(
+                    AssetsImages.logo,
+                    width: 60,
+                    height: 60,
                   ),
+                  const SizedBox(height: 10),
+                  Text(S.current.appName, style: const TextStyle(fontSize: 26)),
                   const SizedBox(height: 100),
                   kIsWeb
                       ? Container()
@@ -74,7 +76,6 @@ class LoginDesktopPageState extends ConsumerState<LoginDesktopPage> {
                           icon: const Icon(Icons.network_check),
                           minWidth: 400,
                           maxWidth: 400,
-                          maxLength: 100,
                           maxLines: 1,
                           afterEdit: (data) {
                             ref.watch(loginProvider.notifier).setHost(data);
@@ -120,19 +121,17 @@ class LoginDesktopPageState extends ConsumerState<LoginDesktopPage> {
                         ToastUtils.show(S.current.passwordNotEmpty);
                         return;
                       }
-                      ref.read(loginProvider.notifier).login();
+                      ref.watch(loginProvider.notifier).login();
                     },
-                    radius: 30.0,
+                    radius: 40.0,
                     child: Container(
+                      // color: Colors.grey,
                       width: 300,
                       height: 50,
                       child: Center(
                         child: Text(
                           S.current.login,
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary),
+                          style: const TextStyle(fontSize: 14),
                         ),
                       ),
                     ),
