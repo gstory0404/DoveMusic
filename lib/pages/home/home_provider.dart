@@ -1,5 +1,6 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:larkmusic/config/app_config.dart';
 import 'package:larkmusic/config/net_api.dart';
 import 'package:larkmusic/entity/album_entity.dart';
 import 'package:larkmusic/entity/music_entity.dart';
@@ -78,7 +79,6 @@ class HomeViewModel extends StateNotifier<HomeState> {
   }
 
   void refreshPage() {
-    Future.wait([]).whenComplete(() {});
     state = state.copyWith(status: StatusType.LOADING);
     getLatestMusic();
     getPlaylist();
@@ -90,7 +90,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   //最新入库
   void getLatestMusic() {
     LMHttp.instance.post<List<MusicEntity>>(NetApi.recently,
-        data: {"page": 1, "size": 20}, success: (data) {
+        data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
         state = state.copyWith(status: StatusType.MAIN, latestMusicList: data);
@@ -107,7 +107,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   //歌单
   void getPlaylist() {
     LMHttp.instance.post<List<SongListEntity>>(NetApi.songList,
-        data: {"page": 1, "size": 20}, success: (data) {
+        data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
         state = state.copyWith(songList: data);
@@ -120,7 +120,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   //专辑
   void getAlbumList() {
     LMHttp.instance.post<List<AlbumEntity>>(NetApi.albumList,
-        data: {"page": 1, "size": 20}, success: (data) {
+        data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
         state = state.copyWith(albumList: data);
@@ -133,7 +133,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
   //歌手
   void getArtistList() {
     LMHttp.instance.post<List<SingerEntity>>(NetApi.singerList,
-        data: {"page": 1, "size": 20}, success: (data) {
+        data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
         state = state.copyWith(singerList: data);
