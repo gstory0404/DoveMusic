@@ -62,6 +62,7 @@ ADMIN_PWD=larkmusic
 ```
 > 部署好访问 http://127.0.0.1:9191
 > 默认管理员账号 admin  larkmusic
+> 首次启动需要到设置-控制台 同步音乐资源
 
 # 说明
 - 由于[插件原因](https://github.com/bdlukaa/just_audio_windows/issues/26)，Windows暂时无法播放名称带空格的歌曲
