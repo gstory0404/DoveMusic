@@ -12,6 +12,7 @@ import 'package:larkmusic/widget/placeholder_image.dart';
 import 'package:larkmusic/widget/volume_widget.dart';
 
 import '../../../utils/log/log_util.dart';
+import '../../../widget/songlist_add_song_dialog.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/11/10 15:27
@@ -20,6 +21,8 @@ import '../../../utils/log/log_util.dart';
 
 class PlayPhonePage extends ConsumerWidget {
   PlayPhonePage({super.key});
+
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,8 +38,12 @@ class PlayPhonePage extends ConsumerWidget {
           ),
         ),
         Scaffold(
+          key: _scaffoldKey,
           appBar: AppBar(
-            title: Text("${state.musicEntity?.name}",style: TextStyle(color: Colors.white),),
+            title: Text(
+              "${state.musicEntity?.name}",
+              style: TextStyle(color: Colors.white),
+            ),
             backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(color: Colors.white),
           ),
@@ -54,12 +61,9 @@ class PlayPhonePage extends ConsumerWidget {
                   buffered: state.bufferedDuration,
                   total: state.maxDuration,
                   progressBarColor: Theme.of(context).colorScheme.primary,
-                  baseBarColor:
-                      Colors.white,
-                  bufferedBarColor: Theme.of(context)
-                      .colorScheme
-                      .primary
-                      .withOpacity(0.24),
+                  baseBarColor: Colors.white,
+                  bufferedBarColor:
+                      Theme.of(context).colorScheme.primary.withOpacity(0.24),
                   timeLabelLocation: TimeLabelLocation.none,
                   thumbColor: Theme.of(context).colorScheme.background,
                   barHeight: 6.0,
@@ -71,7 +75,7 @@ class PlayPhonePage extends ConsumerWidget {
               ),
               Container(
                 padding:
-                    EdgeInsets.only(top: 16, bottom: 40, left: 14, right: 14),
+                    EdgeInsets.only(top: 16, left: 14, right: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -98,6 +102,57 @@ class PlayPhonePage extends ConsumerWidget {
                         }
                       },
                     ),
+                    //添加歌单
+                    IconWidget(
+                      icon: Icons.add_box_outlined,
+                      isSelect: false,
+                      size: 28,
+                      iconColor: Colors.white,
+                      selectedColor: Colors.white,
+                      onPress: () {
+                        if (state.musicEntity?.id == 0) {
+                          return;
+                        }
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return SongListAddSongDialog(
+                                  id: state.musicEntity?.id ?? 0);
+                            });
+                      },
+                    ),
+                    //音量
+                    IconWidget(
+                      icon: Icons.volume_up,
+                      isSelect: false,
+                      size: 28,
+                      iconColor: Colors.white,
+                      selectedColor: Colors.white,
+                      onPress: () {
+                        Navigator.push(context, VolumeWidget());
+                      },
+                    ),
+                    //播放列表
+                    IconWidget(
+                      icon: Icons.menu,
+                      isSelect: false,
+                      size: 28,
+                      iconColor: Colors.white,
+                      selectedColor: Colors.white,
+                      onPress: () {
+                        _scaffoldKey.currentState?.openEndDrawer();
+                        // Scaffold.of(context).openDrawer();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.only(top: 16, bottom: 30, left: 60, right: 60),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
                     //上一首
                     IconWidget(
                       icon: Icons.first_page_outlined,
@@ -130,17 +185,6 @@ class PlayPhonePage extends ConsumerWidget {
                       selectedColor: Colors.white,
                       onPress: () {
                         AudioManager.instance.next();
-                      },
-                    ),
-                    //音量
-                    IconWidget(
-                      icon: Icons.volume_up,
-                      isSelect: false,
-                      size: 28,
-                      iconColor: Colors.white,
-                      selectedColor: Colors.white,
-                      onPress: () {
-                        Navigator.push(context, VolumeWidget());
                       },
                     ),
                   ],

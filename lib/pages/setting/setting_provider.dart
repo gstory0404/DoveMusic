@@ -25,7 +25,7 @@ class SettingState {
 }
 
 final settingProvider =
-    StateNotifierProvider<SettingViewModel, SettingState>((ref) {
+    StateNotifierProvider.autoDispose<SettingViewModel, SettingState>((ref) {
   return SettingViewModel();
 });
 

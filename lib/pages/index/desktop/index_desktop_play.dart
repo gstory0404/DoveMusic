@@ -12,6 +12,7 @@ import 'package:larkmusic/widget/volume_widget.dart';
 
 import '../../../utils/log/log_util.dart';
 import '../../../widget/icon_widget.dart';
+import '../../../widget/songlist_add_song_dialog.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/26 16:14
@@ -169,6 +170,23 @@ class IndexDesktopPlay extends ConsumerWidget {
                       },
                     ),
                     Container(width: 10),
+                    //音量
+                    IconWidget(
+                      icon: Icons.add_box_outlined,
+                      isSelect: false,
+                      size: 20,
+                      onPress: () {
+                        if (state.musicEntity?.id == 0) {
+                          return;
+                        }
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return SongListAddSongDialog(
+                                  id: state.musicEntity?.id ?? 0);
+                            });
+                      },
+                    ),
                     //播放模式
                     IconWidget(
                       icon: AudioManager.instance.getPlayModeIcon(state),

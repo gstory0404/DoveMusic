@@ -33,7 +33,7 @@ class SingerState {
 }
 
 final singerProvider =
-    StateNotifierProvider.family<SingerViewModel, SingerState, int>(
+    StateNotifierProvider.family.autoDispose<SingerViewModel, SingerState, int>(
         (ref, singerId) {
   return SingerViewModel(singerId);
 });

@@ -39,7 +39,7 @@ class SearchState {
 }
 
 final searchProvider =
-    StateNotifierProvider<SearchViewModel, SearchState>((ref) {
+    StateNotifierProvider.autoDispose<SearchViewModel, SearchState>((ref) {
   return SearchViewModel();
 });
 

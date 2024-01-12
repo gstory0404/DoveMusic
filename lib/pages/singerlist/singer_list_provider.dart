@@ -36,7 +36,7 @@ class SingerListState {
 }
 
 final singerListProvider =
-    StateNotifierProvider<SingerListViewModel, SingerListState>((ref) {
+    StateNotifierProvider.autoDispose<SingerListViewModel, SingerListState>((ref) {
   return SingerListViewModel();
 });
 

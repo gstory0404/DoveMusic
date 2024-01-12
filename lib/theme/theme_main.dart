@@ -54,8 +54,14 @@ ThemeData themeMain = ThemeData(
   tabBarTheme: const TabBarTheme(indicatorColor: Colors.white),
   //底部AppBar主题
   bottomAppBarTheme: const BottomAppBarTheme(
-    color: Colors.white60,
-    shadowColor: Colors.white60,
+    color: Colors.white,
+    shadowColor: Colors.white10,
+    surfaceTintColor: Colors.black12,
     elevation: 2,
   ),
+  //popupMenu主题
+  popupMenuTheme: const PopupMenuThemeData(
+    color: Colors.white,
+    shadowColor: Colors.white10
+  )
 );

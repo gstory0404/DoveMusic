@@ -45,10 +45,13 @@ class _MusicItemState extends ConsumerState<MusicItem> {
               size: 16,
               color: Colors.black,
             ),
-            Text(
-              "${widget.entity.name}",
-              style: const TextStyle(fontSize: 14, color: Colors.black),
-            )
+            Expanded(
+              child: Text(
+                "${widget.entity.name}",
+                style: const TextStyle(fontSize: 14),
+                maxLines: 2,
+              ),
+            ),
           ],
         ),
       ),
@@ -62,7 +65,7 @@ class _MusicItemState extends ConsumerState<MusicItem> {
           alignment: Alignment.centerLeft,
           child: Text(
             S.current.play,
-            style: const TextStyle(fontSize: 14, color: Colors.black),
+            style: const TextStyle(fontSize: 14),
           ),
         ),
       ),
@@ -78,7 +81,7 @@ class _MusicItemState extends ConsumerState<MusicItem> {
         },
         child: Text(
           S.current.addToSongList,
-          style: const TextStyle(fontSize: 14, color: Colors.black),
+          style: const TextStyle(fontSize: 14),
         ),
       ),
       ...?widget.menus
@@ -110,7 +113,10 @@ class _MusicItemState extends ConsumerState<MusicItem> {
       onLongPress: (offset) async {
         showMenu(
             context: context,
-            color: Colors.white,
+            constraints: const BoxConstraints(
+              maxWidth: 200,
+              minWidth: 80,
+            ),
             position: RelativeRect.fromLTRB(
               offset.dx / 2,
               offset.dy - 100,
@@ -172,6 +178,10 @@ class _MusicItemState extends ConsumerState<MusicItem> {
                       ),
                       elevation: 5,
                       padding: const EdgeInsets.all(6),
+                      constraints: const BoxConstraints(
+                        maxWidth: 200,
+                        minWidth: 80,
+                      ),
                       itemBuilder: (BuildContext context) {
                         return _menuItems(context);
                       },

@@ -40,7 +40,7 @@ class SongListDetailState {
   }
 }
 
-final songListDetailProvider = StateNotifierProvider.family<
+final songListDetailProvider = StateNotifierProvider.family.autoDispose<
     SongListDetailViewModel, SongListDetailState, int>((ref, singerId) {
   return SongListDetailViewModel(singerId);
 });

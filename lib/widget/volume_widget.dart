@@ -32,8 +32,8 @@ class VolumeWidget extends PopupRoute {
               color: Colors.transparent,
             ),
             Positioned(
-              right: 50,
-              bottom: 60,
+              right: 126,
+              bottom: 146,
               child: Consumer(
                 builder: (BuildContext context, WidgetRef ref, Widget? child) {
                   final volume =

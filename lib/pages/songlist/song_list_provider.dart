@@ -36,7 +36,7 @@ class SongListState {
 }
 
 final songListProvider =
-    StateNotifierProvider<SongListViewModel, SongListState>((ref) {
+    StateNotifierProvider.autoDispose<SongListViewModel, SongListState>((ref) {
   return SongListViewModel();
 });
 

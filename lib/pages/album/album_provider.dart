@@ -34,7 +34,7 @@ class AlbumState {
 }
 
 final albumProvider =
-    StateNotifierProvider.family<AlbumViewModel, AlbumState, int>(
+    StateNotifierProvider.family.autoDispose<AlbumViewModel, AlbumState, int>(
         (ref, albumId) {
   return AlbumViewModel(albumId);
 });

@@ -31,7 +31,7 @@ class ConsoleState {
 }
 
 final consoleProvider =
-    StateNotifierProvider<ConsoleViewModel, ConsoleState>((ref) {
+    StateNotifierProvider.autoDispose<ConsoleViewModel, ConsoleState>((ref) {
   return ConsoleViewModel(refresh: () {
     ref.refresh(homeProvider);
     ref.refresh(indexProvider);

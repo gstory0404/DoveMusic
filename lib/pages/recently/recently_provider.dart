@@ -37,7 +37,7 @@ class RecentlyState {
 }
 
 final recentlyProvider =
-    StateNotifierProvider<RecentlyViewModel, RecentlyState>((ref) {
+    StateNotifierProvider.autoDispose<RecentlyViewModel, RecentlyState>((ref) {
   return RecentlyViewModel();
 });
 
