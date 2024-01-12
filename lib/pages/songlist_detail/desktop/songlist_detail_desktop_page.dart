@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:larkmusic/manager/audio_manager.dart';
 import 'package:larkmusic/pages/index/index_provider.dart';
+import 'package:larkmusic/pages/mine/mine_provider.dart';
 import 'package:larkmusic/pages/songlist_detail/songlist_detail_provider.dart';
 import 'package:larkmusic/pages/songlist_detail/widget/songlist_detail_top.dart';
 import 'package:larkmusic/utils/toast/toast_util.dart';
@@ -28,7 +29,7 @@ class SongListDetailDesktopPage extends ConsumerWidget {
     ref.listen(songListDetailProvider(songListId), (previous, next) {
       if (next.isDelete ?? false) {
         ToastUtils.show(S.current.deleteSongListSuccess);
-        ref.read(indexProvider.notifier).getOwnSongList();
+        ref.watch(mineProvider.notifier).getOwnSongList();
         context.pop();
       }
     });

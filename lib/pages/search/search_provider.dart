@@ -47,7 +47,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
   int page = 1;
 
   SearchViewModel() : super(SearchState.initial()){
-    getSearchList("");
+    // getSearchList("");
   }
 
   //最新入库

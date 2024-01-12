@@ -52,7 +52,7 @@ class HomeAlbum extends ConsumerWidget {
           Container(
             margin: const EdgeInsets.only(top: 10),
             alignment: Alignment.centerLeft,
-            height: 120,
+            height: 116,
             child: ScrollConfiguration(
               behavior:
                   ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -60,7 +60,7 @@ class HomeAlbum extends ConsumerWidget {
                 itemCount: albumList?.length,
                 scrollDirection: Axis.horizontal,
                 physics: const AlwaysScrollableScrollPhysics(),
-                itemExtent: 100,
+                itemExtent: 90,
                 itemBuilder: (BuildContext context, int index) {
                   return HomeAlbumItem(entity: albumList![index]);
                 },

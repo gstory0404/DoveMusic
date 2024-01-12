@@ -11,6 +11,7 @@ import 'package:larkmusic/widget/input_widget.dart';
 
 import '../../../config/assets_image.dart';
 import '../../../utils/sp/sp_manager.dart';
+import '../../index/index_page.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/24 15:11
@@ -31,7 +32,7 @@ class LoginPhonePageState extends ConsumerState<LoginPhonePage> {
   void initState() {
     super.initState();
     if (SPManager.instance.getUserInfo().token?.isNotEmpty ?? false) {
-      HomePage.go(context);
+      IndexPage.go(context);
     }
     WidgetsBinding.instance.addPostFrameCallback((mag) {
       ref.watch(loginProvider.notifier).readCacheData();

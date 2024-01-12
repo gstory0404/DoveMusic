@@ -97,7 +97,7 @@ class SongListCreateWidget extends StatelessWidget {
     LMHttp.instance.post<int>(NetApi.create,
         data: {"name": _name, "desc": _desc}, success: (data) {
       SongListDetailPage.go(context, data);
-      context.pop(data);
+      Navigator.of(context).pop();
     }, fail: (code, message) {
       ToastUtils.show("$code $message");
     });

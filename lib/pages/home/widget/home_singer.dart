@@ -53,7 +53,7 @@ class HomeSinger extends ConsumerWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 10),
                   alignment: Alignment.centerLeft,
-                  height: 110,
+                  height: 100,
                   child: ScrollConfiguration(
                     behavior: ScrollConfiguration.of(context)
                         .copyWith(scrollbars: false),
@@ -61,7 +61,7 @@ class HomeSinger extends ConsumerWidget {
                       itemCount: singerList?.length,
                       scrollDirection: Axis.horizontal,
                       physics: const AlwaysScrollableScrollPhysics(),
-                      itemExtent: 100,
+                      itemExtent: 70,
                       itemBuilder: (BuildContext context, int index) {
                         return HomeSingerItem(entity: singerList![index]);
                       },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:larkmusic/net/lm_http.dart';
+import 'package:larkmusic/pages/mine/mine_provider.dart';
 import 'package:larkmusic/widget/ink_widget.dart';
 import 'package:larkmusic/widget/placeholder_image.dart';
 
@@ -22,7 +23,7 @@ class SongListAddSongDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var songList = ref.watch(indexProvider.select((value) => value.songList));
+    var songList = ref.watch(mineProvider.select((value) => value.songList));
     return AlertDialog(
       title: Text(
         S.current.songListAddMusic,

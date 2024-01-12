@@ -52,7 +52,7 @@ class HomeRecently extends ConsumerWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 10),
-                  height: 100,
+                  height: 96,
                   child: ScrollConfiguration(
                     behavior: ScrollConfiguration.of(context)
                         .copyWith(scrollbars: false),
@@ -60,7 +60,7 @@ class HomeRecently extends ConsumerWidget {
                       itemCount: latestMusicList?.length,
                       scrollDirection: Axis.horizontal,
                       physics: const AlwaysScrollableScrollPhysics(),
-                      itemExtent: 80,
+                      itemExtent: 70,
                       itemBuilder: (BuildContext context, int index) {
                         return HomeMusicItem(entity: latestMusicList![index]);
                       },

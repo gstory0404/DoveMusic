@@ -12,39 +12,25 @@ import '../../utils/toast/toast_util.dart';
 
 class IndexModel {
   final String name;
-  List<SongListEntity> songList;
 
-  IndexModel({required this.name, required this.songList});
+  IndexModel({required this.name});
 
-  IndexModel.initial()
-      : name = "",
-        songList = [];
+  IndexModel.initial() : name = "";
 
   IndexModel copyWith({
     String? name,
-    List<SongListEntity>? songList,
   }) {
     return IndexModel(
-        name: name ?? this.name, songList: songList ?? this.songList);
+      name: name ?? this.name,
+    );
   }
 }
 
-final indexProvider = StateNotifierProvider.autoDispose<IndexViewModel, IndexModel>((ref) {
+final indexProvider =
+    StateNotifierProvider.autoDispose<IndexViewModel, IndexModel>((ref) {
   return IndexViewModel();
 });
 
 class IndexViewModel extends StateNotifier<IndexModel> {
-  IndexViewModel() : super(IndexModel.initial()) {
-    getOwnSongList();
-  }
-
-  //我的歌单列表
-  void getOwnSongList() {
-    LMHttp.instance.post<List<SongListEntity>>(NetApi.ownSongList,
-        data: {"page": 1, "size": 200}, success: (data) {
-      state = state.copyWith(songList: data);
-    }, fail: (code, message) {
-      ToastUtils.show("$code $message");
-    });
-  }
+  IndexViewModel() : super(IndexModel.initial()) {}
 }

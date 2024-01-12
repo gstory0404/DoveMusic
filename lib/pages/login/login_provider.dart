@@ -5,6 +5,7 @@ import 'package:larkmusic/config/net_api.dart';
 import 'package:larkmusic/entity/login_entity.dart';
 import 'package:larkmusic/net/lm_http.dart';
 import 'package:larkmusic/pages/index/index_provider.dart';
+import 'package:larkmusic/pages/mine/mine_provider.dart';
 import 'package:larkmusic/utils/encrypt/encrypt_utils.dart';
 import 'package:larkmusic/utils/log/log_util.dart';
 import 'package:larkmusic/utils/sp/sp_manager.dart';
@@ -59,7 +60,7 @@ final loginProvider =
     StateNotifierProvider.autoDispose<LoginViewModel, LoginState>((ref) {
   return LoginViewModel(refresh: () {
     ref.watch(homeProvider.notifier).refreshPage();
-    ref.watch(indexProvider.notifier).getOwnSongList();
+    ref.watch(mineProvider.notifier).getOwnSongList();
   });
 });
 

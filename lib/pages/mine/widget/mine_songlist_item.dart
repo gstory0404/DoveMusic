@@ -1,6 +1,7 @@
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/index/index_provider.dart';
+import 'package:larkmusic/pages/mine/mine_provider.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../widget/icon_widget.dart';
@@ -13,11 +14,11 @@ import '../../songlist_detail/widget/songlist_create_dialog.dart';
 /// @Description: dart类作用描述
 
 class MineSongListItem extends ConsumerWidget {
-
   int count;
   double childAspectRatio;
 
-  MineSongListItem({super.key,required this.count,this.childAspectRatio = 1.0});
+  MineSongListItem(
+      {super.key, required this.count, this.childAspectRatio = 1.0});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -49,9 +50,8 @@ class MineSongListItem extends ConsumerWidget {
                               builder: (BuildContext context) {
                                 return SongListCreateWidget();
                               })
-                          .then((value) => ref
-                              .read(indexProvider.notifier)
-                              .getOwnSongList());
+                          .then((value) =>
+                              ref.read(mineProvider.notifier).getOwnSongList());
                     },
                   );
                 }),
@@ -61,19 +61,30 @@ class MineSongListItem extends ConsumerWidget {
           Expanded(
             child: Consumer(
               builder: (context, ref, _) {
-                var songList =
-                    ref.watch(indexProvider.select((value) => value.songList));
-                return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: count, //横轴三个子widget
-                    childAspectRatio: childAspectRatio, //子widget宽高比例
-                  ),
-                  itemCount: songList.length,
-                  itemBuilder: (context, index) {
-                    return SongListDesktopItem(
-                      entity: songList[index],
-                    );
+                return EasyRefresh(
+                  controller: ref.watch(mineProvider).controller,
+                  triggerAxis: Axis.vertical,
+                  onRefresh: () {
+                    ref.read(mineProvider.notifier).getOwnSongList();
                   },
+                  child: SingleChildScrollView(
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        spacing: 10,
+                        runSpacing: 10,
+                        alignment: WrapAlignment.start,
+                        runAlignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        children: ref
+                            .watch(
+                                mineProvider.select((value) => value.songList))
+                            .map((e) => SongListDesktopItem(entity: e))
+                            .toList(),
+                      ),
+                    ),
+                  ),
                 );
               },
             ),

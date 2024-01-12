@@ -30,9 +30,12 @@ class SettingItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14, color: Colors.black),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(fontSize: 14, color: Colors.black),
+                maxLines: 1,
+              ),
             ),
             content,
           ],

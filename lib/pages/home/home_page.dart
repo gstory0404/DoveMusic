@@ -12,10 +12,10 @@ import 'package:larkmusic/routes/app_pages.dart';
 
 class HomePage extends BasePage {
   static void go(BuildContext context) {
-    context.goNamed(RouterPage.home);
     if (context.canPop()) {
       context.pop();
     }
+    context.goNamed(RouterPage.home);
   }
 
   @override

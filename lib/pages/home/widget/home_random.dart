@@ -52,7 +52,7 @@ class HomeRandom extends ConsumerWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10),
-                  height: 100,
+                  height: 96,
                   child: ScrollConfiguration(
                     behavior: ScrollConfiguration.of(context)
                         .copyWith(scrollbars: false),
@@ -60,7 +60,7 @@ class HomeRandom extends ConsumerWidget {
                       itemCount: randomMusicList?.length,
                       scrollDirection: Axis.horizontal,
                       physics: const AlwaysScrollableScrollPhysics(),
-                      itemExtent: 80,
+                      itemExtent: 70,
                       itemBuilder: (BuildContext context, int index) {
                         return HomeMusicItem(entity: randomMusicList![index]);
                       },
