@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:larkmusic/entity/music_entity.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
+import 'package:dovemusic/entity/music_entity.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
 
 import '../../utils/log/log_util.dart';
 

@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/pages/console/console_provider.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
+import 'package:dovemusic/pages/console/console_provider.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
 
 import '../../../generated/l10n.dart';
 

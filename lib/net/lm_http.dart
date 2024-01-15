@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
-import 'package:larkmusic/main.dart';
-import 'package:larkmusic/net/request_interceptor.dart';
-import 'package:larkmusic/net/response_interceptor.dart';
-import 'package:larkmusic/net/token_interceptor.dart';
-import 'package:larkmusic/pages/login/login_page.dart';
+import 'package:dovemusic/main.dart';
+import 'package:dovemusic/net/request_interceptor.dart';
+import 'package:dovemusic/net/response_interceptor.dart';
+import 'package:dovemusic/net/token_interceptor.dart';
+import 'package:dovemusic/pages/login/login_page.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../entity/base_entity.dart';

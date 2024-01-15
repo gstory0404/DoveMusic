@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_view/flutter_list_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_playlist_item.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_playlist_item.dart';
 
 import '../../../generated/l10n.dart';
 import '../../play/play_provider.dart';

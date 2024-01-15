@@ -1,4 +1,4 @@
-import 'package:larkmusic/entity/music_entity.dart';
+import 'package:dovemusic/entity/music_entity.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/6/16 17:10

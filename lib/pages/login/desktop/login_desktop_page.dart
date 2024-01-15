@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/generated/l10n.dart';
-import 'package:larkmusic/pages/home/home_page.dart';
-import 'package:larkmusic/pages/login/login_provider.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/utils/toast/toast_util.dart';
-import 'package:larkmusic/widget/background_widget.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
-import 'package:larkmusic/widget/input_widget.dart';
+import 'package:dovemusic/generated/l10n.dart';
+import 'package:dovemusic/pages/home/home_page.dart';
+import 'package:dovemusic/pages/login/login_provider.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/utils/toast/toast_util.dart';
+import 'package:dovemusic/widget/background_widget.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/input_widget.dart';
 
 import '../../../config/assets_image.dart';
 import '../../index/index_page.dart';

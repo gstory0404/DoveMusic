@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/pages/base/base_page.dart';
-import 'package:larkmusic/pages/mine/desktop/mine_desktop_page.dart';
-import 'package:larkmusic/pages/mine/phone/mine_phone_page.dart';
-import 'package:larkmusic/routes/app_pages.dart';
+import 'package:dovemusic/pages/base/base_page.dart';
+import 'package:dovemusic/pages/mine/desktop/mine_desktop_page.dart';
+import 'package:dovemusic/pages/mine/phone/mine_phone_page.dart';
+import 'package:dovemusic/routes/app_pages.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/11/10 16:40

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/pages/play/play_provider.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/pages/play/play_provider.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/11/7 12:30

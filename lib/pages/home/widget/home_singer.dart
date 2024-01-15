@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/home/home_provider.dart';
-import 'package:larkmusic/pages/singerlist/singer_list_page.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
+import 'package:dovemusic/pages/home/home_provider.dart';
+import 'package:dovemusic/pages/singerlist/singer_list_page.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
 
 import '../../../generated/l10n.dart';
 import 'home_singer_item.dart';

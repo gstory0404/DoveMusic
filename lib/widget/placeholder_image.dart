@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:larkmusic/config/assets_image.dart';
+import 'package:dovemusic/config/assets_image.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/6/16 18:19

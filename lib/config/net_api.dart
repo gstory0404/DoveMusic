@@ -1,4 +1,4 @@
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/25 15:17

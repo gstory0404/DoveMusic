@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/config/net_api.dart';
-import 'package:larkmusic/net/lm_http.dart';
-import 'package:larkmusic/utils/encrypt/encrypt_utils.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/utils/toast/toast_util.dart';
-import 'package:larkmusic/widget/input_widget.dart';
+import 'package:dovemusic/config/net_api.dart';
+import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/utils/encrypt/encrypt_utils.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/utils/toast/toast_util.dart';
+import 'package:dovemusic/widget/input_widget.dart';
 
 import '../../../generated/l10n.dart';
 

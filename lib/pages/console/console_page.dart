@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/pages/base/base_page.dart';
-import 'package:larkmusic/pages/console/widget/console_content.dart';
+import 'package:dovemusic/pages/base/base_page.dart';
+import 'package:dovemusic/pages/console/widget/console_content.dart';
 
 import '../../generated/l10n.dart';
 import '../../routes/app_pages.dart';

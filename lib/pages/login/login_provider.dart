@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/net_api.dart';
-import 'package:larkmusic/entity/login_entity.dart';
-import 'package:larkmusic/net/lm_http.dart';
-import 'package:larkmusic/pages/index/index_provider.dart';
-import 'package:larkmusic/pages/mine/mine_provider.dart';
-import 'package:larkmusic/utils/encrypt/encrypt_utils.dart';
-import 'package:larkmusic/utils/log/log_util.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/config/net_api.dart';
+import 'package:dovemusic/entity/login_entity.dart';
+import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/pages/index/index_provider.dart';
+import 'package:dovemusic/pages/mine/mine_provider.dart';
+import 'package:dovemusic/utils/encrypt/encrypt_utils.dart';
+import 'package:dovemusic/utils/log/log_util.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 import '../../config/assets_image.dart';
 import '../home/home_provider.dart';

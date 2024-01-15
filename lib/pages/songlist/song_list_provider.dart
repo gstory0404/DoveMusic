@@ -1,8 +1,8 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/app_config.dart';
-import 'package:larkmusic/config/net_api.dart';
-import 'package:larkmusic/entity/song_list_entity.dart';
+import 'package:dovemusic/config/app_config.dart';
+import 'package:dovemusic/config/net_api.dart';
+import 'package:dovemusic/entity/song_list_entity.dart';
 
 import '../../net/lm_http.dart';
 import '../../widget/status_widget.dart';

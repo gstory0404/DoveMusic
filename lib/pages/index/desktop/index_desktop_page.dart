@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_menu.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_play.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_playlist.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_title.dart';
-import 'package:larkmusic/widget/background_widget.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_menu.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_play.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_playlist.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_title.dart';
+import 'package:dovemusic/widget/background_widget.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/4/26 18:19

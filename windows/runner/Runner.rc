@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.gstory" "\0"
-            VALUE "FileDescription", "larkmusic" "\0"
+            VALUE "FileDescription", "dovemusic" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "larkmusic" "\0"
+            VALUE "InternalName", "dovemusic" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.gstory. All rights reserved." "\0"
-            VALUE "OriginalFilename", "larkmusic.exe" "\0"
-            VALUE "ProductName", "larkmusic" "\0"
+            VALUE "OriginalFilename", "dovemusic.exe" "\0"
+            VALUE "ProductName", "dovemusic" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

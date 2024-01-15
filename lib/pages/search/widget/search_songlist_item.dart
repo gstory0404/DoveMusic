@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
-import 'package:larkmusic/widget/placeholder_image.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/placeholder_image.dart';
 
 import '../../../entity/song_list_entity.dart';
 import '../../songlist_detail/songlist_detail_page.dart';

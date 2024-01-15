@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lyric/lyrics_reader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/play/play_provider.dart';
-import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:dovemusic/pages/play/play_provider.dart';
+import 'package:dovemusic/widget/icon_widget.dart';
 
 import '../../../generated/l10n.dart';
 

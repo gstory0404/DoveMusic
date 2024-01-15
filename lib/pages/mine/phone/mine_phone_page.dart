@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/setting/setting_page.dart';
-import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:dovemusic/pages/setting/setting_page.dart';
+import 'package:dovemusic/widget/icon_widget.dart';
 
 import '../../../generated/l10n.dart';
 import '../widget/mine_songlist_item.dart';

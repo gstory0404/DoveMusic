@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 import '../generated/l10n.dart';
 

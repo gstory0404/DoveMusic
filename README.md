@@ -1,6 +1,6 @@
-# LarkMusic（云雀音乐）
+# DoveMusic
 
-云雀音乐是一个基于Flutter、Go开发个人音乐服务，支持私有化部署、全平台客户端支持
+DoveMusic是一个基于Flutter、Go开发个人音乐服务，支持私有化部署、全平台客户端支持
 
 ![](https://github.com/gstory0404/LarkMusic/blob/master/doc/larkmusic.png)
 
@@ -32,15 +32,15 @@
 ## 安装
 - docker
 ```
-docker run --name larkmusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/larkmusic:latest
+docker run --name dovemusic -v ./Music/:/app/data -v ./cache/:/app/cache -v ./.env/:/app/web/assets/assets/.env -p 9191:9191 --privileged -d gstory404/dovemusic:latest
 ```
 - docker compose
 ```
 version: "3.4"
 services:
-  larkmusic:
-    image: gstory404/larkmusic:latest
-    container_name: larkmusic
+  dovemusic:
+    image: gstory404/dovemusic:latest
+    container_name: dovemusic
     ports:
       - 9191:9191
     volumes:
@@ -58,10 +58,10 @@ services:
 ```
 BASE_URL=http://127.0.0.1:9191
 ADMIN_USER=admin
-ADMIN_PWD=larkmusic
+ADMIN_PWD=dovemusic
 ```
 > 部署好访问 http://127.0.0.1:9191
-> 默认管理员账号 admin  larkmusic
+> 默认管理员账号 admin  dovemusic
 > 首次启动需要到设置-控制台 同步音乐资源
 
 # 说明

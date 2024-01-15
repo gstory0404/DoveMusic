@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/manager/locale_provider.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
+import 'package:dovemusic/manager/locale_provider.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
 
 import '../../../generated/l10n.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/pages/setting/widget/setting_content.dart';
-import 'package:larkmusic/widget/background_widget.dart';
+import 'package:dovemusic/pages/setting/widget/setting_content.dart';
+import 'package:dovemusic/widget/background_widget.dart';
 
 import '../../../generated/l10n.dart';
 

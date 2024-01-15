@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/assets_image.dart';
-import 'package:larkmusic/generated/l10n.dart';
-import 'package:larkmusic/pages/albumlist/album_list_page.dart';
-import 'package:larkmusic/pages/home/home_page.dart';
-import 'package:larkmusic/pages/index/desktop/index_desktop_item.dart';
-import 'package:larkmusic/pages/index/index_provider.dart';
-import 'package:larkmusic/pages/mine/mine_page.dart';
-import 'package:larkmusic/pages/recently/recently_page.dart';
-import 'package:larkmusic/pages/singerlist/singer_list_page.dart';
-import 'package:larkmusic/pages/songlist/song_list_page.dart';
-import 'package:larkmusic/pages/songlist_detail/songlist_detail_page.dart';
-import 'package:larkmusic/pages/songlist_detail/widget/songlist_create_dialog.dart';
-import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:dovemusic/config/assets_image.dart';
+import 'package:dovemusic/generated/l10n.dart';
+import 'package:dovemusic/pages/albumlist/album_list_page.dart';
+import 'package:dovemusic/pages/home/home_page.dart';
+import 'package:dovemusic/pages/index/desktop/index_desktop_item.dart';
+import 'package:dovemusic/pages/index/index_provider.dart';
+import 'package:dovemusic/pages/mine/mine_page.dart';
+import 'package:dovemusic/pages/recently/recently_page.dart';
+import 'package:dovemusic/pages/singerlist/singer_list_page.dart';
+import 'package:dovemusic/pages/songlist/song_list_page.dart';
+import 'package:dovemusic/pages/songlist_detail/songlist_detail_page.dart';
+import 'package:dovemusic/pages/songlist_detail/widget/songlist_create_dialog.dart';
+import 'package:dovemusic/widget/icon_widget.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/17 16:56

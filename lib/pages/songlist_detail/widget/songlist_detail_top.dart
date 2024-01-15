@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/entity/song_list_entity.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/pages/songlist_detail/songlist_detail_provider.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/widget/filtered_widget.dart';
-import 'package:larkmusic/widget/placeholder_image.dart';
-import 'package:larkmusic/widget/play_all_button.dart';
+import 'package:dovemusic/entity/song_list_entity.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/pages/songlist_detail/songlist_detail_provider.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/widget/filtered_widget.dart';
+import 'package:dovemusic/widget/placeholder_image.dart';
+import 'package:dovemusic/widget/play_all_button.dart';
 
 import '../../../generated/l10n.dart';
 

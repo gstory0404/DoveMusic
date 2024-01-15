@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/entity/music_entity.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
-import 'package:larkmusic/widget/placeholder_image.dart';
+import 'package:dovemusic/entity/music_entity.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/placeholder_image.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/25 18:53

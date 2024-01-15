@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/console/console_provider.dart';
-import 'package:larkmusic/pages/console/widget/sync_dialog.dart';
+import 'package:dovemusic/pages/console/console_provider.dart';
+import 'package:dovemusic/pages/console/widget/sync_dialog.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../widget/icon_widget.dart';

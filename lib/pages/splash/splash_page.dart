@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/config/assets_image.dart';
-import 'package:larkmusic/generated/l10n.dart';
-import 'package:larkmusic/pages/index/index_page.dart';
-import 'package:larkmusic/pages/login/login_page.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/widget/background_widget.dart';
+import 'package:dovemusic/config/assets_image.dart';
+import 'package:dovemusic/generated/l10n.dart';
+import 'package:dovemusic/pages/index/index_page.dart';
+import 'package:dovemusic/pages/login/login_page.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/widget/background_widget.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../manager/audio_manager.dart';

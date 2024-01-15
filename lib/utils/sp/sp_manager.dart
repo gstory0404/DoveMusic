@@ -1,7 +1,7 @@
-import 'package:larkmusic/config/global_keys.dart';
-import 'package:larkmusic/entity/login_entity.dart';
-import 'package:larkmusic/utils/sp/sp_impl.dart';
-import 'package:larkmusic/utils/sp/sp_util.dart';
+import 'package:dovemusic/config/global_keys.dart';
+import 'package:dovemusic/entity/login_entity.dart';
+import 'package:dovemusic/utils/sp/sp_impl.dart';
+import 'package:dovemusic/utils/sp/sp_util.dart';
 
 import '../log/log_util.dart';
 

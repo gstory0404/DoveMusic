@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/net/lm_http.dart';
-import 'package:larkmusic/pages/mine/mine_provider.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
-import 'package:larkmusic/widget/placeholder_image.dart';
+import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/pages/mine/mine_provider.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/placeholder_image.dart';
 
 import '../config/net_api.dart';
 import '../generated/l10n.dart';

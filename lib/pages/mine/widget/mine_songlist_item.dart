@@ -1,7 +1,7 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/mine/mine_provider.dart';
+import 'package:dovemusic/pages/mine/mine_provider.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../widget/icon_widget.dart';

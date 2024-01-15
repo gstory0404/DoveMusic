@@ -32,7 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "appDesc":
             MessageLookupByLibrary.simpleMessage("A Beautiful music player"),
         "appHome": MessageLookupByLibrary.simpleMessage("App Homepage"),
-        "appName": MessageLookupByLibrary.simpleMessage("LarkMusic"),
+        "appName": MessageLookupByLibrary.simpleMessage("DoveMusic"),
         "appVersion": MessageLookupByLibrary.simpleMessage("App"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changePsd": MessageLookupByLibrary.simpleMessage("Change Password"),

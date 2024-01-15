@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/net_api.dart';
-import 'package:larkmusic/entity/album_entity.dart';
-import 'package:larkmusic/net/lm_http.dart';
-import 'package:larkmusic/utils/log/log_util.dart';
-import 'package:larkmusic/widget/status_widget.dart';
+import 'package:dovemusic/config/net_api.dart';
+import 'package:dovemusic/entity/album_entity.dart';
+import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/utils/log/log_util.dart';
+import 'package:dovemusic/widget/status_widget.dart';
 
 import '../../utils/toast/toast_util.dart';
 

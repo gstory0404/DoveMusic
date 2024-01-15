@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/routes/app_pages.dart';
+import 'package:dovemusic/routes/app_pages.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/17 11:22

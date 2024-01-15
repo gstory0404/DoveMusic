@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:larkmusic/pages/albumlist/desktop/album_list_desktop_page.dart';
-import 'package:larkmusic/pages/base/base_page.dart';
-import 'package:larkmusic/routes/app_pages.dart';
+import 'package:dovemusic/pages/albumlist/desktop/album_list_desktop_page.dart';
+import 'package:dovemusic/pages/base/base_page.dart';
+import 'package:dovemusic/routes/app_pages.dart';
 
 import 'phone/phone_list_phone_page.dart';
 

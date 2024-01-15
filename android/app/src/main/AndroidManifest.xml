@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.gstory.larkmusic"
+    package="com.gstory.dovemusic"
     tools:ignore="Instantiatable">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,7 +9,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="LarkMusic"
+        android:label="DoveMusic"
         android:usesCleartextTraffic="true">
 <!--        android:name=".MainActivity"-->
         <activity

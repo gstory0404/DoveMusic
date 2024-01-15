@@ -1,11 +1,11 @@
 {
-    "name": "larkmusic",
-    "short_name": "larkmusic",
+    "name": "DoveMusic",
+    "short_name": "DoveMusic",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "LarkMusic client",
+    "description": "DoveMusic client",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -2,9 +2,9 @@ import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:larkmusic/entity/music_entity.dart';
-import 'package:larkmusic/pages/play/play_provider.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/entity/music_entity.dart';
+import 'package:dovemusic/pages/play/play_provider.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 import '../config/net_api.dart';
 import '../utils/log/log_util.dart';

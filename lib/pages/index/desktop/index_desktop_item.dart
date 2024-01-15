@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/5/17 16:16

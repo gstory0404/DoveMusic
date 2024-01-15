@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:larkmusic/config/assets_image.dart';
-import 'package:larkmusic/generated/l10n.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
+import 'package:dovemusic/config/assets_image.dart';
+import 'package:dovemusic/generated/l10n.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
 import 'package:system_tray/system_tray.dart';
 
 /// @Author: gstory

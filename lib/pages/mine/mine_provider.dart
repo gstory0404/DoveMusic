@@ -1,6 +1,6 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 import '../../config/net_api.dart';
 import '../../entity/song_list_entity.dart';

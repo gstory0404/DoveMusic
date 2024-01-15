@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:larkmusic/pages/album/album_page.dart';
+import 'package:dovemusic/pages/album/album_page.dart';
 
 import '../../../entity/album_entity.dart';
 import '../../../widget/ink_widget.dart';

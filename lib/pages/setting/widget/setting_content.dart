@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/assets_image.dart';
-import 'package:larkmusic/pages/console/console_page.dart';
-import 'package:larkmusic/pages/setting/setting_provider.dart';
-import 'package:larkmusic/pages/setting/widget/setting_item.dart';
-import 'package:larkmusic/pages/setting/widget/setting_language_dialog.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:dovemusic/config/assets_image.dart';
+import 'package:dovemusic/pages/console/console_page.dart';
+import 'package:dovemusic/pages/setting/setting_provider.dart';
+import 'package:dovemusic/pages/setting/widget/setting_item.dart';
+import 'package:dovemusic/pages/setting/widget/setting_language_dialog.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/widget/icon_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../generated/l10n.dart';
@@ -102,7 +102,7 @@ class SettingContent extends StatelessWidget {
                         "v${ref.watch(settingProvider.select((value) => value.appVersion))}"),
                     onTap: () async {
                       await launchUrl(Uri.parse(
-                          "https://github.com/gstory0404/LarkMusic/releases"));
+                          "https://github.com/gstory0404/DoveMusic/releases"));
                     },
                   );
                 }),
@@ -111,10 +111,10 @@ class SettingContent extends StatelessWidget {
                 SettingItem(
                   title: S.current.appHome,
                   content:
-                      const Text("https://github.com/gstory0404/LarkMusic",style: TextStyle(fontSize: 12),maxLines: 1),
+                      const Text("https://github.com/gstory0404/DoveMusic",style: TextStyle(fontSize: 12),maxLines: 1),
                   onTap: () async {
                     await launchUrl(
-                        Uri.parse("https://github.com/gstory0404/LarkMusic"));
+                        Uri.parse("https://github.com/gstory0404/DoveMusic"));
                   },
                 ),
                 const Divider(height: 0.5),

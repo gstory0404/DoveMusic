@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "album": MessageLookupByLibrary.simpleMessage("专辑"),
         "appDesc": MessageLookupByLibrary.simpleMessage("开源音乐播放器"),
         "appHome": MessageLookupByLibrary.simpleMessage("项目主页"),
-        "appName": MessageLookupByLibrary.simpleMessage("LarkMusic"),
+        "appName": MessageLookupByLibrary.simpleMessage("DoveMusic"),
         "appVersion": MessageLookupByLibrary.simpleMessage("App版本"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "changePsd": MessageLookupByLibrary.simpleMessage("修改密码"),

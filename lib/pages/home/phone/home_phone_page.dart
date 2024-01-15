@@ -1,11 +1,11 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/home/widget/home_album.dart';
-import 'package:larkmusic/pages/home/widget/home_recently.dart';
-import 'package:larkmusic/pages/home/widget/home_songlist.dart';
-import 'package:larkmusic/pages/search/search_page.dart';
-import 'package:larkmusic/widget/icon_widget.dart';
+import 'package:dovemusic/pages/home/widget/home_album.dart';
+import 'package:dovemusic/pages/home/widget/home_recently.dart';
+import 'package:dovemusic/pages/home/widget/home_songlist.dart';
+import 'package:dovemusic/pages/search/search_page.dart';
+import 'package:dovemusic/widget/icon_widget.dart';
 
 import '../../../generated/l10n.dart';
 import '../home_provider.dart';

@@ -1,9 +1,9 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/songlist/desktop/song_list_desktop_item.dart';
-import 'package:larkmusic/pages/songlist/song_list_provider.dart';
-import 'package:larkmusic/widget/status_widget.dart';
+import 'package:dovemusic/pages/songlist/desktop/song_list_desktop_item.dart';
+import 'package:dovemusic/pages/songlist/song_list_provider.dart';
+import 'package:dovemusic/widget/status_widget.dart';
 
 import '../../../generated/l10n.dart';
 

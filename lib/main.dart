@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:larkmusic/generated/l10n.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/manager/locale_provider.dart';
-import 'package:larkmusic/routes/app_pages.dart';
-import 'package:larkmusic/theme/theme_main.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/generated/l10n.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/manager/locale_provider.dart';
+import 'package:dovemusic/routes/app_pages.dart';
+import 'package:dovemusic/theme/theme_main.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
@@ -52,8 +52,8 @@ void initWindow() async {
 void initAudio() async {
   if (!kIsWeb) {
     await JustAudioBackground.init(
-      androidNotificationChannelId: 'com.gstory.larkmusic',
-      androidNotificationChannelName: 'Lark Music',
+      androidNotificationChannelId: 'com.gstory.dovemusic',
+      androidNotificationChannelName: 'Dove Music',
       androidNotificationOngoing: true,
     );
   }
@@ -69,9 +69,9 @@ class MyApp extends ConsumerWidget {
     return OKToast(
       child: MaterialApp.router(
         key: navigatorKey,
-        title: "LarkMusic",
+        title: "DoveMusic",
         onGenerateTitle: (context) {
-          return "LarkMusic";
+          return "DoveMusic";
         },
         //路由
         routerConfig: (kIsWeb ||

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/home/home_provider.dart';
+import 'package:dovemusic/pages/home/home_provider.dart';
 
 import '../../config/net_api.dart';
 import '../../net/lm_http.dart';

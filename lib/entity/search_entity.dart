@@ -1,6 +1,6 @@
-import 'package:larkmusic/entity/album_entity.dart';
-import 'package:larkmusic/entity/singer_entity.dart';
-import 'package:larkmusic/entity/song_list_entity.dart';
+import 'package:dovemusic/entity/album_entity.dart';
+import 'package:dovemusic/entity/singer_entity.dart';
+import 'package:dovemusic/entity/song_list_entity.dart';
 
 import 'music_entity.dart';
 

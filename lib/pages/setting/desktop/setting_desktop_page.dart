@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/pages/setting/widget/setting_content.dart';
+import 'package:dovemusic/pages/setting/widget/setting_content.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/11/13 15:43

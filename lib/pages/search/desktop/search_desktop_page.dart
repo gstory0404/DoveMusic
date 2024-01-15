@@ -1,16 +1,16 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/manager/audio_manager.dart';
-import 'package:larkmusic/pages/search/search_provider.dart';
-import 'package:larkmusic/pages/search/widget/search_album_item.dart';
-import 'package:larkmusic/pages/search/widget/search_music_item.dart';
-import 'package:larkmusic/pages/search/widget/search_singer_item.dart';
-import 'package:larkmusic/utils/toast/toast_util.dart';
-import 'package:larkmusic/widget/ink_widget.dart';
-import 'package:larkmusic/widget/music_item.dart';
-import 'package:larkmusic/widget/play_all_button.dart';
-import 'package:larkmusic/widget/status_widget.dart';
+import 'package:dovemusic/manager/audio_manager.dart';
+import 'package:dovemusic/pages/search/search_provider.dart';
+import 'package:dovemusic/pages/search/widget/search_album_item.dart';
+import 'package:dovemusic/pages/search/widget/search_music_item.dart';
+import 'package:dovemusic/pages/search/widget/search_singer_item.dart';
+import 'package:dovemusic/utils/toast/toast_util.dart';
+import 'package:dovemusic/widget/ink_widget.dart';
+import 'package:dovemusic/widget/music_item.dart';
+import 'package:dovemusic/widget/play_all_button.dart';
+import 'package:dovemusic/widget/status_widget.dart';
 
 import '../../../generated/l10n.dart';
 import '../widget/search_songlist_item.dart';

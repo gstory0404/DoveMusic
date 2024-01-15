@@ -1,14 +1,14 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:larkmusic/config/app_config.dart';
-import 'package:larkmusic/config/net_api.dart';
-import 'package:larkmusic/entity/album_entity.dart';
-import 'package:larkmusic/entity/music_entity.dart';
-import 'package:larkmusic/entity/singer_entity.dart';
-import 'package:larkmusic/entity/song_list_entity.dart';
-import 'package:larkmusic/utils/log/log_util.dart';
-import 'package:larkmusic/utils/sp/sp_manager.dart';
-import 'package:larkmusic/widget/status_widget.dart';
+import 'package:dovemusic/config/app_config.dart';
+import 'package:dovemusic/config/net_api.dart';
+import 'package:dovemusic/entity/album_entity.dart';
+import 'package:dovemusic/entity/music_entity.dart';
+import 'package:dovemusic/entity/singer_entity.dart';
+import 'package:dovemusic/entity/song_list_entity.dart';
+import 'package:dovemusic/utils/log/log_util.dart';
+import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:dovemusic/widget/status_widget.dart';
 
 import '../../generated/l10n.dart';
 import '../../net/lm_http.dart';

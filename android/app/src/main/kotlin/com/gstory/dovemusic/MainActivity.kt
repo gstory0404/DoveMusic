@@ -1,4 +1,4 @@
-package com.gstory.larkmusic
+package com.gstory.dovemusic
 
 import io.flutter.embedding.android.FlutterActivity
 
