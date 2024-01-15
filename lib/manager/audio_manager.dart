@@ -130,13 +130,12 @@ class AudioManager {
     if (list.isEmpty) {
       return;
     }
+    await _player.stop();
     await _addPlayList(musicList: list);
-    if (_player.audioSource?.sequence.isEmpty ?? true) {
-      try {
-        await _player.setAudioSource(_playlist, preload: true);
-      } catch (e, stackTrace) {
-        LogUtil.d("Error loading playlist: $e  $stackTrace");
-      }
+    try {
+      await _player.setAudioSource(_playlist, preload: true);
+    } catch (e, stackTrace) {
+      LogUtil.d("Error loading playlist: $e  $stackTrace");
     }
     await _player.seek(Duration.zero, index: 0);
     await _player.play();
