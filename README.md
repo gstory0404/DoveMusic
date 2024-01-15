@@ -1,8 +1,8 @@
-# DoveMusic
+# DoveMusic(白鸽音乐)
 
 DoveMusic是一个基于Flutter、Go开发个人音乐服务，支持私有化部署、全平台客户端支持
 
-![](https://github.com/gstory0404/LarkMusic/blob/master/doc/larkmusic.png)
+![](https://github.com/gstory0404/DoveMusic/blob/master/doc/larkmusic.png)
 
 ## 功能
 - 多用户
@@ -61,7 +61,9 @@ ADMIN_USER=admin
 ADMIN_PWD=dovemusic
 ```
 > 部署好访问 http://127.0.0.1:9191
+
 > 默认管理员账号 admin  dovemusic
+
 > 首次启动需要到设置-控制台 同步音乐资源
 
 # 说明
@@ -73,6 +75,6 @@ ADMIN_PWD=dovemusic
 本项目仅以纯粹的技术目的去学习研究，如有侵犯到任何人的合法权利，请联系gstory0404@gmail.com。  
 任何基于本项目的二开请标明来源，感谢！  
 
-本项目基于[Apache License 2.0](https://github.com/gstory0404/LarkMusic/blob/master/LICENSE)许可证发行
+本项目基于[Apache License 2.0](https://github.com/gstory0404/DoveMusic/blob/master/LICENSE)许可证发行
 
 
