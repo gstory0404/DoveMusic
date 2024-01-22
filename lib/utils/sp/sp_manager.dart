@@ -86,7 +86,7 @@ class SPManager implements SPImpl {
   }
 
   bool isLogin() {
-    return getUserInfo().userId != 0;
+    return getUserInfo().userId != 0 && (getUserInfo().token?.isNotEmpty ?? false);
   }
 
   @override

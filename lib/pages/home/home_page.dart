@@ -12,9 +12,6 @@ import 'package:dovemusic/routes/app_pages.dart';
 
 class HomePage extends BasePage {
   static void go(BuildContext context) {
-    if (context.canPop()) {
-      context.pop();
-    }
     context.goNamed(RouterPage.home);
   }
 

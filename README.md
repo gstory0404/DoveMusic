@@ -2,7 +2,7 @@
 
 DoveMusic是一个基于Flutter、Go开发个人音乐服务，支持私有化部署、全平台客户端支持
 
-![](https://github.com/gstory0404/DoveMusic/blob/master/doc/larkmusic.png)
+![](https://github.com/gstory0404/DoveMusic/blob/master/doc/app.png)
 
 ## 功能
 - 多用户

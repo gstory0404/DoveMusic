@@ -17,9 +17,6 @@ class IndexPage extends BasePage {
   IndexPage({super.key, this.child});
 
   static void go(BuildContext context) {
-    if (context.canPop()) {
-      context.pop();
-    }
     context.goNamed(RouterPage.home);
   }
 
