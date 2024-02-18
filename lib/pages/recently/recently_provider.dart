@@ -4,7 +4,7 @@ import 'package:dovemusic/config/app_config.dart';
 import 'package:dovemusic/config/net_api.dart';
 import 'package:dovemusic/entity/music_entity.dart';
 
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/toast/toast_util.dart';
 import '../../widget/status_widget.dart';
 
@@ -65,7 +65,7 @@ class RecentlyViewModel extends StateNotifier<RecentlyState> {
 
   //最新入库
   void _getRecentlyList() {
-    LMHttp.instance.post<List<MusicEntity>>(NetApi.recently,
+    DMHttp.instance.post<List<MusicEntity>>(NetApi.recently,
         data: {"page": page, "size": AppConfig.maxSize}, success: (data) {
       if (data.length < AppConfig.maxSize) {
         state.controller.finishLoad(IndicatorResult.noMore);

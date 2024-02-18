@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dovemusic/config/net_api.dart';
 import 'package:dovemusic/entity/album_entity.dart';
-import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/net/dv_http.dart';
 import 'package:dovemusic/utils/log/log_util.dart';
 import 'package:dovemusic/widget/status_widget.dart';
 
@@ -50,7 +50,7 @@ class AlbumViewModel extends StateNotifier<AlbumState> {
   //专辑详情
   void getAlbumDetail() {
     state = state.copyWith(status: StatusType.LOADING);
-    LMHttp.instance.post<AlbumEntity>(NetApi.albumDetail,
+    DMHttp.instance.post<AlbumEntity>(NetApi.albumDetail,
         data: {"id": _albumId}, success: (data) {
       LogUtil.d(data.toJson());
       state = state.copyWith(album: data, status: StatusType.MAIN);

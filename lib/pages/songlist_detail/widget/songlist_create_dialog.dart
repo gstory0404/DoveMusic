@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/net/dv_http.dart';
 import 'package:dovemusic/pages/songlist_detail/songlist_detail_page.dart';
 
 import '../../../config/net_api.dart';
@@ -94,7 +94,7 @@ class SongListCreateWidget extends StatelessWidget {
 
   //创建歌单
   void _createSongList(BuildContext context) {
-    LMHttp.instance.post<int>(NetApi.create,
+    DMHttp.instance.post<int>(NetApi.create,
         data: {"name": _name, "desc": _desc}, success: (data) {
       SongListDetailPage.go(context, data);
       Navigator.of(context).pop();

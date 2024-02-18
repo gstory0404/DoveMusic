@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dovemusic/pages/home/home_provider.dart';
 
 import '../../config/net_api.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/log/log_util.dart';
 import '../../utils/toast/toast_util.dart';
 import '../index/index_provider.dart';
@@ -47,13 +47,13 @@ class ConsoleViewModel extends StateNotifier<ConsoleState> {
   void syncMusic() {
     state = state.copyWith(syncLogs: []);
     CancelToken cancelToken = CancelToken();
-    LMHttp.instance.sse(NetApi.syncMusic, cancelToken: cancelToken,
+    DMHttp.instance.sse(NetApi.syncMusic, cancelToken: cancelToken,
         success: (data) {
       if (data.startsWith("data:")) {
         LogUtil.d("接收的事件 ${data.substring("data:".length)}");
         state = state.copyWith(syncLogs: [...state.syncLogs, data.substring("data:".length)]);
       } else if (data.startsWith("end")) {
-        LMHttp.instance.cancelRequests(token: cancelToken);
+        DMHttp.instance.cancelRequests(token: cancelToken);
         refresh();
       }
     }, fail: (code, message) {

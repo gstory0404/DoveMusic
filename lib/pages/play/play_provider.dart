@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:dovemusic/net/dv_http.dart';
+import 'package:dovemusic/utils/encrypt/encrypt_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:dovemusic/entity/music_entity.dart';
@@ -73,11 +77,18 @@ class PlayViewModel extends StateNotifier<PlayState> {
     //监听播放位置
     AudioManager.instance.playbackEventStream.listen((event) {
       state = state.copyWith(
-        musicEntity: AudioManager.instance.getPlayMusic(),
         bufferedDuration: event.bufferedPosition,
         maxDuration: event.duration,
         // isPlaying: !(event.processingState == ProcessingState.completed),
       );
+      if (state.musicEntity?.id != AudioManager.instance.getPlayMusic()?.id) {
+        state = state.copyWith(
+            musicEntity: AudioManager.instance.getPlayMusic()?..lyrics = '');
+        if (state.musicEntity?.lyrics?.isEmpty ?? false) {
+          getKuGouLrc(state.musicEntity!.name ?? "",
+              state.musicEntity!.artistName, state.musicEntity!.albumName);
+        }
+      }
     });
     //监听播放进度
     AudioManager.instance.playerPositionStream.listen((event) {
@@ -106,5 +117,76 @@ class PlayViewModel extends StateNotifier<PlayState> {
   void seek(Duration duration) {
     AudioManager.instance.seek(duration);
     AudioManager.instance.play(play: true);
+  }
+
+  //适配酷狗歌词
+  Future getKuGouLrc(String name, String? artist, String? album) async {
+    // http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword=%E6%96%AD%E6%A1%A5%E6%AE%8B%E9%9B%AA%20%E5%93%88%E5%93%88&page=1&pagesize=2&showtype=1
+    var searchData = await DMHttp.instance.requestApi(
+        baseUrl: "http://mobilecdn.kugou.com",
+        path:
+            "/api/v3/search/song?format=json&keyword=$name $artist $album&page=1&pagesize=2&showtype=1");
+    LogUtil.d("searchData => $searchData");
+    if (searchData == null) {
+      return;
+    }
+    var searchMap = json.decode(searchData);
+    if (searchMap["status"] == null ||
+        searchMap["status"] != 1 ||
+        searchMap["data"] == null ||
+        searchMap['data']['info'] == null) {
+      LogUtil.d("searchData => 异常");
+      return;
+    }
+    // https://krcs.kugou.com/search?ver=1&man=yes&client=mobi&keyword=&duration=&hash=a9a8d57c5aef93fc18a636514500e7e7&album_audio_id=
+    var songHash = searchMap['data']['info'][0]['hash'];
+    var songData = await DMHttp.instance.requestApi(
+        baseUrl: "https://krcs.kugou.com",
+        path:
+            "/search?ver=1&man=yes&client=mobi&keyword=&duration=&hash=$songHash&album_audio_id=");
+    LogUtil.d("songData => $songData");
+    if (songData == null) {
+      return;
+    }
+    Map<String, dynamic> songMap;
+    if (songData is Map<String, dynamic>) {
+      songMap = songData;
+    } else {
+      songMap = json.decode(songData);
+    }
+    if (songMap["status"] == null ||
+        songMap["status"] != 200 ||
+        songMap["candidates"] == null) {
+      return;
+    }
+    // https://lyrics.kugou.com/download?ver=1&client=pc&id=160224024&accesskey=73524B4AD5D29E9CEF022D920C0ADBAD&fmt=lrc&charset=utf8
+    var id = songMap['candidates'][0]['id'];
+    var accessKey = songMap['candidates'][0]['accesskey'];
+    var lrcData = await DMHttp.instance.requestApi(
+        baseUrl: "https://lyrics.kugou.com",
+        path:
+            "/download?ver=1&client=pc&id=$id&accesskey=$accessKey&fmt=lrc&charset=utf8");
+    LogUtil.d("lrcData => $lrcData");
+    if (lrcData == null) {
+      return;
+    }
+    Map<String, dynamic> lrcMap;
+    if (lrcData is Map<String, dynamic>) {
+      lrcMap = lrcData;
+    } else {
+      lrcMap = json.decode(lrcData);
+    }
+    if (lrcMap["status"] == null ||
+        lrcMap["status"] != 200 ||
+        lrcMap["content"] == null) {
+      return;
+    }
+    var lrcMD5 = lrcMap["content"];
+    var lrc = EncryptUtils.base64ToStr(lrcMD5);
+    LogUtil.d("lrc => $lrc");
+    if (lrc.isEmpty) {
+      return;
+    }
+    state = state.copyWith(musicEntity: state.musicEntity?..lyrics = lrc);
   }
 }

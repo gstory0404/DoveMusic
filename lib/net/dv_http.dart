@@ -20,21 +20,21 @@ import 'error_code.dart';
 /// @Email gstory0404@gmail.com
 /// @Description: dart类作用描述
 
-class LMHttp {
-  factory LMHttp() => _getInstance();
+class DMHttp {
+  factory DMHttp() => _getInstance();
 
-  static LMHttp get instance => _getInstance();
-  static LMHttp? _instance;
+  static DMHttp get instance => _getInstance();
+  static DMHttp? _instance;
 
-  static LMHttp _getInstance() {
-    _instance ??= LMHttp._internal();
+  static DMHttp _getInstance() {
+    _instance ??= DMHttp._internal();
     return _instance!;
   }
 
   static late final Dio dio;
   final CancelToken _cancelToken = CancelToken();
 
-  LMHttp._internal() {
+  DMHttp._internal() {
     BaseOptions options = BaseOptions();
     dio = Dio(options);
     dio.interceptors.add(RequestInterceptor());
@@ -81,8 +81,7 @@ class LMHttp {
   }
 
   ///get请求
-  Future get<T>(
-    String path, {
+  Future get<T>(String path, {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
@@ -99,8 +98,7 @@ class LMHttp {
   }
 
   ///post请求
-  Future post<T>(
-    String path, {
+  Future post<T>(String path, {
     data,
     Options? options,
     CancelToken? cancelToken,
@@ -116,8 +114,7 @@ class LMHttp {
         fail: fail);
   }
 
-  Future _request<T>(
-    String path, {
+  Future _request<T>(String path, {
     Map<String, dynamic>? params,
     data,
     String method = "post",
@@ -128,7 +125,7 @@ class LMHttp {
   }) async {
     if (dio.options.baseUrl.isEmpty) {
       //初始化
-      LMHttp.instance.init(baseUrl: SPManager.instance.getHost());
+      DMHttp.instance.init(baseUrl: SPManager.instance.getHost());
     }
     try {
       Options requestOptions = options ?? Options();
@@ -168,8 +165,7 @@ class LMHttp {
   }
 
   ///sse接口
-  Future sse(
-    String path, {
+  Future sse(String path, {
     Map<String, dynamic>? params,
     CancelToken? cancelToken,
     Success<String>? success,
@@ -202,11 +198,51 @@ class LMHttp {
   }
 
   StreamTransformer<Uint8List, List<int>> unit8Transformer =
-      StreamTransformer.fromHandlers(
+  StreamTransformer.fromHandlers(
     handleData: (data, sink) {
       sink.add(List<int>.from(data));
     },
   );
+
+  Future requestApi({
+    required String baseUrl,
+    required String path,
+    Map<String, dynamic>? params,
+    data,
+    String method = "get",
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    BaseOptions options = BaseOptions().copyWith(
+      baseUrl: baseUrl,
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 30),
+    );
+    options.baseUrl = baseUrl;
+    Dio dio = Dio(options);
+    try {
+      Response response;
+      if (method == "get") {
+        response = await dio.get(
+          path,
+          queryParameters: params,
+          options: Options(),
+          cancelToken: cancelToken ?? _cancelToken,
+        );
+      } else {
+        response = await dio.post(
+          path,
+          data: data,
+          options: Options(),
+          cancelToken: cancelToken ?? _cancelToken,
+        );
+      }
+      return response.data;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
 
 typedef Success<T> = Function(T data); // 请求成功回调

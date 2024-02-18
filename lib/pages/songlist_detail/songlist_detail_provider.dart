@@ -3,7 +3,7 @@ import 'package:dovemusic/config/net_api.dart';
 import 'package:dovemusic/entity/song_list_entity.dart';
 
 import '../../generated/l10n.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/toast/toast_util.dart';
 import '../../widget/status_widget.dart';
 
@@ -57,7 +57,7 @@ class SongListDetailViewModel extends StateNotifier<SongListDetailState> {
   //歌单详情
   void getSongListDetail() {
     state = state.copyWith(status: StatusType.LOADING);
-    LMHttp.instance.post<SongListEntity>(NetApi.songListDetail,
+    DMHttp.instance.post<SongListEntity>(NetApi.songListDetail,
         data: {"id": _songListId}, success: (data) {
       state = state.copyWith(songListDetail: data, status: StatusType.MAIN);
     }, fail: (code, message) {
@@ -68,7 +68,7 @@ class SongListDetailViewModel extends StateNotifier<SongListDetailState> {
 
   //删除歌单
   void deleteSongList() {
-    LMHttp.instance.post<int>(NetApi.songListDelete, data: {"id": _songListId},
+    DMHttp.instance.post<int>(NetApi.songListDelete, data: {"id": _songListId},
         success: (data) {
       state = state.copyWith(isDelete: true);
     }, fail: (code, message) {
@@ -78,7 +78,7 @@ class SongListDetailViewModel extends StateNotifier<SongListDetailState> {
 
   //删除歌曲
   void deleteSong(List<int> ids) {
-    LMHttp.instance.post<String>(NetApi.songListDeleteMusic,
+    DMHttp.instance.post<String>(NetApi.songListDeleteMusic,
         data: {"id": _songListId, "music_ids": ids}, success: (data) {
       ToastUtils.show(S.current.deleteSuccess);
       getSongListDetail();

@@ -1,3 +1,4 @@
+import 'package:dovemusic/utils/log/log_util.dart';
 import 'package:flutter/material.dart';
 import 'package:dovemusic/config/assets_image.dart';
 import 'package:dovemusic/generated/l10n.dart';
@@ -8,7 +9,7 @@ import 'package:dovemusic/widget/background_widget.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../manager/audio_manager.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2024/1/11 14:24
@@ -23,20 +24,22 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
     super.initState();
-    SPManager.instance.init().then((value){
-      //初始化
-      LMHttp.instance.init(baseUrl: SPManager.instance.getHost());
-      AudioManager.instance;
-      if(SPManager.instance.isLogin()){
-        IndexPage.go(context);
-      }else{
-        LoginPage.go(context);
-      }
-    });
+    initCache();
+  }
+
+  Future<void> initCache() async {
+    await SPManager.instance.init();
+    //初始化
+    DMHttp.instance.init(baseUrl: SPManager.instance.getHost());
+    AudioManager.instance;
+    if (SPManager.instance.isLogin()) {
+      IndexPage.go(context);
+    } else {
+      LoginPage.go(context);
+    }
   }
 
   @override

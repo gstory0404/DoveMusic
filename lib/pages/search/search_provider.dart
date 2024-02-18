@@ -6,7 +6,7 @@ import 'package:dovemusic/entity/search_entity.dart';
 import 'package:dovemusic/utils/log/log_util.dart';
 
 import '../../config/app_config.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/toast/toast_util.dart';
 import '../../widget/status_widget.dart';
 
@@ -53,7 +53,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
   //最新入库
   void getSearchList(String key) {
     state = state.copyWith(status: StatusType.LOADING);
-    LMHttp.instance.post<SearchEntity>(NetApi.search,
+    DMHttp.instance.post<SearchEntity>(NetApi.search,
         data: {"key": key, "page": page, "size": AppConfig.maxSize},
         success: (data) {
       state.controller.finishRefresh(IndicatorResult.success);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/net/dv_http.dart';
 import 'package:dovemusic/pages/mine/mine_provider.dart';
 import 'package:dovemusic/widget/ink_widget.dart';
 import 'package:dovemusic/widget/placeholder_image.dart';
@@ -102,7 +102,7 @@ class SongListAddSongDialog extends ConsumerWidget {
 
   //歌单添加歌曲
   void _songListAddMusic(BuildContext context, int songListId) {
-    LMHttp.instance.post<String>(NetApi.songListAddMusic, data: {
+    DMHttp.instance.post<String>(NetApi.songListAddMusic, data: {
       "id": songListId,
       "music_ids": [id]
     }, success: (data) {

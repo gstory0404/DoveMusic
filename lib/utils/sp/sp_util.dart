@@ -13,8 +13,6 @@ class SPUtil {
   Future<SPUtil> init() async {
     preferences = await SharedPreferences.getInstance();
     return this;
-    //sp异步的 可能会导致语言没有第一时间更新 所有初始化完成后重新更新一次
-    // LanguageUtil.updateLanguage();
   }
 
   ///保存数据

@@ -4,7 +4,7 @@ import 'package:dovemusic/utils/sp/sp_manager.dart';
 
 import '../../config/net_api.dart';
 import '../../entity/song_list_entity.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/toast/toast_util.dart';
 
 /// @Author: gstory
@@ -64,7 +64,7 @@ class MineViewModel extends StateNotifier<MineState> {
 
   //我的歌单列表
   void getOwnSongList() {
-    LMHttp.instance.post<List<SongListEntity>>(NetApi.ownSongList,
+    DMHttp.instance.post<List<SongListEntity>>(NetApi.ownSongList,
         data: {"page": 1, "size": 200}, success: (data) {
       state.controller.finishRefresh(IndicatorResult.success);
       state = state.copyWith(songList: data);

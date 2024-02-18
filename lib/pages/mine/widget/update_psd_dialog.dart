@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dovemusic/config/net_api.dart';
-import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/net/dv_http.dart';
 import 'package:dovemusic/utils/encrypt/encrypt_utils.dart';
 import 'package:dovemusic/utils/sp/sp_manager.dart';
 import 'package:dovemusic/utils/toast/toast_util.dart';
@@ -119,7 +119,7 @@ class _UpdatePsdDialogState extends State<UpdatePsdDialog> {
 
   //登录
   void _updatePsd() {
-    LMHttp.instance.post<String>(NetApi.updatePsd, data: {
+    DMHttp.instance.post<String>(NetApi.updatePsd, data: {
       "password": EncryptUtils.strToMd5(_psd!),
       "newPassword": EncryptUtils.strToMd5(_newPsd!)
     }, success: (data) {

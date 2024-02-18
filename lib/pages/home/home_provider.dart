@@ -11,7 +11,7 @@ import 'package:dovemusic/utils/sp/sp_manager.dart';
 import 'package:dovemusic/widget/status_widget.dart';
 
 import '../../generated/l10n.dart';
-import '../../net/lm_http.dart';
+import '../../net/dv_http.dart';
 import '../../utils/toast/toast_util.dart';
 
 /// @Author: gstory
@@ -89,7 +89,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   //最新入库
   void getLatestMusic() {
-    LMHttp.instance.post<List<MusicEntity>>(NetApi.recently,
+    DMHttp.instance.post<List<MusicEntity>>(NetApi.recently,
         data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
@@ -106,7 +106,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   //歌单
   void getPlaylist() {
-    LMHttp.instance.post<List<SongListEntity>>(NetApi.songList,
+    DMHttp.instance.post<List<SongListEntity>>(NetApi.songList,
         data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
@@ -119,7 +119,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   //专辑
   void getAlbumList() {
-    LMHttp.instance.post<List<AlbumEntity>>(NetApi.albumList,
+    DMHttp.instance.post<List<AlbumEntity>>(NetApi.albumList,
         data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
@@ -132,7 +132,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   //歌手
   void getArtistList() {
-    LMHttp.instance.post<List<SingerEntity>>(NetApi.singerList,
+    DMHttp.instance.post<List<SingerEntity>>(NetApi.singerList,
         data: {"page": 1, "size": AppConfig.maxSize}, success: (data) {
       if (mounted) {
         state.controller.finishRefresh(IndicatorResult.success);
@@ -145,7 +145,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   //随机播放
   void getRandomList() {
-    LMHttp.instance.post<List<MusicEntity>>(NetApi.random, success: (data) {
+    DMHttp.instance.post<List<MusicEntity>>(NetApi.random, success: (data) {
       if (mounted) {
         state = state.copyWith(randomMusicList: data);
       }

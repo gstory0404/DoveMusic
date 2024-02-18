@@ -18,6 +18,7 @@ import 'package:dovemusic/pages/songlist/song_list_page.dart';
 import 'package:dovemusic/pages/songlist_detail/songlist_detail_page.dart';
 import 'package:dovemusic/pages/splash/splash_page.dart';
 import 'package:dovemusic/utils/sp/sp_manager.dart';
+import 'package:logger/logger.dart';
 
 import '../manager/tray_manager.dart';
 import '../utils/log/log_util.dart';
@@ -142,9 +143,8 @@ final desktopRouter = GoRouter(
 
 _myGoRouterRedirect() {
   return (BuildContext context, GoRouterState state) {
-    // print("登录信息${SPManager.instance.getUserInfo().toJson()}");
     //如果未登录就跳转登录页面
-    if (!SPManager.instance.isLogin()) {
+    if (!SPManager.instance.isLogin() && state.uri.toString() != "/splash") {
       // return context.namedLocation(RouterPage.login);
       return "/login";
     } else {

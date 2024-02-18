@@ -30,8 +30,6 @@ class SPManager implements SPImpl {
   Future<void> init() async {
     _spUtil = await SPUtil().init();
     return;
-    //sp异步的 可能会导致语言没有第一时间更新 所有初始化完成后重新更新一次
-    // LanguageUtil.updateLanguage();
   }
 
   @override
@@ -86,6 +84,7 @@ class SPManager implements SPImpl {
   }
 
   bool isLogin() {
+    print(getUserInfo().toJson());
     return getUserInfo().userId != 0 && (getUserInfo().token?.isNotEmpty ?? false);
   }
 

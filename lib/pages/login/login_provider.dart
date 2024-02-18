@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dovemusic/config/net_api.dart';
 import 'package:dovemusic/entity/login_entity.dart';
-import 'package:dovemusic/net/lm_http.dart';
+import 'package:dovemusic/net/dv_http.dart';
 import 'package:dovemusic/pages/index/index_provider.dart';
 import 'package:dovemusic/pages/mine/mine_provider.dart';
 import 'package:dovemusic/utils/encrypt/encrypt_utils.dart';
@@ -83,10 +83,11 @@ class LoginViewModel extends StateNotifier<LoginState> {
 
   //输入域名
   void setHost(String url) {
+    LogUtil.d(url);
     //初始化
-    LMHttp.instance.init(baseUrl: SPManager.instance.getHost());
     SPManager.instance.saveHost(url);
     state = state.copyWith(url: url);
+    DMHttp.instance.init(baseUrl: url);
   }
 
   //输入账号
@@ -103,10 +104,11 @@ class LoginViewModel extends StateNotifier<LoginState> {
 
   //登录
   void login() {
-    LMHttp.instance.post<LoginEntity>(NetApi.login, data: {
+    DMHttp.instance.post<LoginEntity>(NetApi.login, data: {
       "account": state.account,
       "password": EncryptUtils.strToMd5(state.password)
     }, success: (data) {
+      print(data.token);
       SPManager.instance.saveAccountPass(state.account, state.password);
       SPManager.instance.saveUserInfo(data);
       state = state.copyWith(loginEntity: data, errMsg: null);

@@ -15,4 +15,11 @@ class EncryptUtils {
     var digest = md5.convert(content);
     return digest.toString();
   }
+
+  //base64解码
+  static String base64ToStr(String data) {
+    List<int> bytes = base64.decode(data);
+    String decodedString = utf8.decode(bytes);
+    return decodedString.toString();
+  }
 }
